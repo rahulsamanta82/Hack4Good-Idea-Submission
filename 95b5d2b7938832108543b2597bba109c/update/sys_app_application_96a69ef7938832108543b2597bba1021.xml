@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description/>
+        <device_type>browser</device_type>
+        <hint/>
+        <name>Hack4Good Ideas</name>
+        <order>100</order>
+        <roles>x_snc_hack4good_0.hack4good_idea_user</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-24 19:36:35</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>96a69ef7938832108543b2597bba1021</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Hack4Good Ideas</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sys_app_application_96a69ef7938832108543b2597bba1021</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-24 19:36:35</sys_updated_on>
+        <title>Hack4Good Ideas</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>
