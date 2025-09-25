@@ -4,13 +4,13 @@
             <element>number</element>
             <position>0</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>63c6aa8493d072108543b2597bba101a</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>5fba1f04931872108543b2597bba1032</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,167 +18,153 @@
             <element>participation</element>
             <position>1</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>2fc6aa8493d072108543b2597bba101a</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>5bba1f04931872108543b2597bba1033</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>contact_email</element>
-            <position>2</position>
-            <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>a3c6aa8493d072108543b2597bba101b</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
-            <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>3</position>
+            <position>2</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>2bc6aa8493d072108543b2597bba101b</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>dfba1f04931872108543b2597bba1033</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>priority</element>
-            <position>4</position>
+            <position>3</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>afc6aa8493d072108543b2597bba101b</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>57ba1f04931872108543b2597bba1034</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>state</element>
-            <position>5</position>
+            <position>4</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>27c6aa8493d072108543b2597bba101c</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>dbba1f04931872108543b2597bba1034</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>6</position>
+            <position>5</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>abc6aa8493d072108543b2597bba101c</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>53ba1f04931872108543b2597bba1035</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>short_description</element>
-            <position>7</position>
+            <position>6</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>23c6aa8493d072108543b2597bba101d</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>d7ba1f04931872108543b2597bba1035</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>8</position>
+            <position>7</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>a7c6aa8493d072108543b2597bba101d</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>5fba1f04931872108543b2597bba1035</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>potential_impact_html</element>
-            <position>9</position>
+            <position>8</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>2fc6aa8493d072108543b2597bba101d</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>d3ba1f04931872108543b2597bba1036</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>solution_proposal_html</element>
-            <position>10</position>
+            <position>9</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>a3c6aa8493d072108543b2597bba101e</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>5bba1f04931872108543b2597bba1036</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>work_notes</element>
-            <position>11</position>
+            <position>10</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>2bc6aa8493d072108543b2597bba101e</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>dfba1f04931872108543b2597bba1036</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>activity.xml</element>
-            <position>12</position>
+            <position>11</position>
             <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-25 15:25:37</sys_created_on>
-            <sys_id>afc6aa8493d072108543b2597bba101e</sys_id>
+            <sys_created_on>2025-09-25 19:12:31</sys_created_on>
+            <sys_id>57ba1f04931872108543b2597bba1037</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter display_value="Activities (filtered)">444ea5c6bf310100e628555b3f0739d6</sys_ui_formatter>
             <sys_ui_section caption="NULL" display_value="" name="x_snc_hack4good_0_hack4good_idea" sys_domain="global" view="Default view">3e685ecc935072108543b2597bba101e</sys_ui_section>
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-25 15:25:37</sys_updated_on>
+            <sys_updated_on>2025-09-25 19:12:31</sys_updated_on>
             <sys_user/>
             <type>formatter</type>
         </sys_ui_element>
