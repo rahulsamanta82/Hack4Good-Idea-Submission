@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>/* ========== THEME TOKENS (edit these to match current ServiceNow brand) ========== */&#13;
+:root {&#13;
+  /* Brand */&#13;
+  --brand-primary:        #0B5FFF;     /* replace with current SN primary */&#13;
+  --brand-primary-600:    #094BCC;&#13;
+  --brand-accent:         #00A3A3;     /* teal-ish accent, tweak as needed */&#13;
+  --brand-accent-600:     #008080;&#13;
+&#13;
+  /* Surface / neutrals */&#13;
+  --bg:                   #0B0D12;     /* deep canvas */&#13;
+  --surface-1:            #111521;&#13;
+  --surface-2:            #171C2B;&#13;
+  --surface-3:            #1F2638;&#13;
+&#13;
+  /* Text */&#13;
+  --text-1:               #E8ECF5;     /* primary text */&#13;
+  --text-2:               #B5BED1;     /* secondary */&#13;
+  --text-muted:           #8C96AB;&#13;
+&#13;
+  /* Borders / outlines */&#13;
+  --line:                 #2A3245;&#13;
+&#13;
+  /* States */&#13;
+  --success:              #22C55E;&#13;
+  --warning:              #F59E0B;&#13;
+  --danger:               #EF4444;&#13;
+  --info:                 var(--brand-primary);&#13;
+&#13;
+  /* Shadows &amp; radii */&#13;
+  --shadow-1:             0 8px 24px rgba(0,0,0,0.25);&#13;
+  --radius-sm:            10px;&#13;
+  --radius-md:            16px;&#13;
+  --radius-lg:            24px;&#13;
+&#13;
+  /* Spacing scale */&#13;
+  --space-1:              4px;&#13;
+  --space-2:              8px;&#13;
+  --space-3:              12px;&#13;
+  --space-4:              16px;&#13;
+  --space-5:              24px;&#13;
+  --space-6:              32px;&#13;
+  --space-7:              48px;&#13;
+  --space-8:              64px;&#13;
+&#13;
+  /* Typography */&#13;
+  --font-sans:            ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;&#13;
+  --font-size-xs:         12px;&#13;
+  --font-size-sm:         14px;&#13;
+  --font-size-md:         16px;&#13;
+  --font-size-lg:         18px;&#13;
+  --font-size-xl:         22px;&#13;
+  --font-size-2xl:        28px;&#13;
+  --font-size-3xl:        36px;&#13;
+  --line-height:          1.45;&#13;
+}&#13;
+&#13;
+/* Optional: auto-dark hook if you ever flip to light theme */&#13;
+@media (prefers-color-scheme: light) {&#13;
+  :root[data-theme="light"] {&#13;
+    --bg: #ffffff; --surface-1:#ffffff; --surface-2:#F6F8FB; --surface-3:#EEF2F7;&#13;
+    --text-1:#0F172A; --text-2:#334155; --text-muted:#64748B; --line:#E2E8F0;&#13;
+    --shadow-1: 0 6px 18px rgba(2,6,23,0.08);&#13;
+  }&#13;
+}&#13;
+&#13;
+/* ===== CSS RESET / BASE ===== */&#13;
+html, body {&#13;
+  background: var(--bg);&#13;
+  color: var(--text-1);&#13;
+  font-family: var(--font-sans);&#13;
+  font-size: var(--font-size-md);&#13;
+  line-height: var(--line-height);&#13;
+  -webkit-font-smoothing: antialiased;&#13;
+  -moz-osx-font-smoothing: grayscale;&#13;
+}&#13;
+&#13;
+a { color: var(--brand-primary); text-decoration: none; }&#13;
+a:hover, a:focus { text-decoration: underline; }&#13;
+&#13;
+img { max-width: 100%; height: auto; display: block; }&#13;
+&#13;
+hr { border: 0; border-top: 1px solid var(--line); margin: var(--space-6) 0; }&#13;
+&#13;
+:focus-visible {&#13;
+  outline: 2px solid var(--brand-accent);&#13;
+  outline-offset: 2px;&#13;
+}&#13;
+&#13;
+/* ===== PORTAL CHROME KILL SWITCH (no menu, no crumbs) ===== */&#13;
+.sp-navbar, .sp-navbar-wrapper, .breadcrumb, .sp-breadcrumb, .breadcrumb-container {&#13;
+  display: none !important;&#13;
+}&#13;
+&#13;
+/* Optional header strip (keeps your SN logo minimal) */&#13;
+.portal-header {&#13;
+  display: flex;&#13;
+  align-items: center;&#13;
+  gap: var(--space-3);&#13;
+  padding: var(--space-4) var(--space-6);&#13;
+  border-bottom: 1px solid var(--line);&#13;
+  background: linear-gradient(180deg, rgba(11,95,255,0.06), transparent);&#13;
+}&#13;
+.portal-header .sp-logo img { height: 28px; }&#13;
+&#13;
+/* Page container */&#13;
+.page {&#13;
+  max-width: 1120px;&#13;
+  margin: 0 auto;&#13;
+  padding: var(--space-7) var(--space-4);&#13;
+}&#13;
+&#13;
+/* Typographic rhythm */&#13;
+h1 { font-size: var(--font-size-3xl); margin: 0 0 var(--space-4) 0; }&#13;
+h2 { font-size: var(--font-size-2xl); margin: var(--space-6) 0 var(--space-3) 0; }&#13;
+h3 { font-size: var(--font-size-xl);  margin: var(--space-5) 0 var(--space-2) 0; }&#13;
+p  { margin: 0 0 var(--space-4) 0; color: var(--text-2); }&#13;
+.small { font-size: var(--font-size-sm); color: var(--text-muted); }&#13;
+&#13;
+/* Motion respect */&#13;
+@media (prefers-reduced-motion: reduce) {&#13;
+  * { animation: none !important; transition: none !important; }&#13;
+}</css>
+        <name>00-base</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 19:46:24</sys_created_on>
+        <sys_id>e162a7cc931872108543b2597bba10f9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>00-base</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sp_css_e162a7cc931872108543b2597bba10f9</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-25 19:46:24</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_css>
+</record_update>

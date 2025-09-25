@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_css">
+    <sp_css action="INSERT_OR_UPDATE">
+        <css>/* Cards */&#13;
+.card {&#13;
+  background: radial-gradient(1200px 600px at 0% 0%, rgba(11,95,255,0.08), transparent 40%),&#13;
+              var(--surface-1);&#13;
+  border: 1px solid var(--line);&#13;
+  border-radius: var(--radius-lg);&#13;
+  box-shadow: var(--shadow-1);&#13;
+  padding: var(--space-6);&#13;
+}&#13;
+&#13;
+.card + .card { margin-top: var(--space-5); }&#13;
+&#13;
+.card-title {&#13;
+  font-size: var(--font-size-xl);&#13;
+  color: var(--text-1);&#13;
+  margin-bottom: var(--space-3);&#13;
+}&#13;
+&#13;
+/* Buttons */&#13;
+.btn {&#13;
+  display: inline-flex;&#13;
+  align-items: center;&#13;
+  gap: var(--space-2);&#13;
+  padding: 10px 16px;&#13;
+  border-radius: var(--radius-md);&#13;
+  border: 1px solid transparent;&#13;
+  font-weight: 600;&#13;
+  cursor: pointer;&#13;
+  transition: transform .06s ease, background .15s ease, border-color .15s ease;&#13;
+  text-decoration: none;&#13;
+}&#13;
+&#13;
+.btn:active { transform: translateY(1px); }&#13;
+&#13;
+.btn-primary {&#13;
+  background: linear-gradient(180deg, var(--brand-primary), var(--brand-primary-600));&#13;
+  color: white;&#13;
+}&#13;
+.btn-primary:hover { filter: brightness(1.05); }&#13;
+&#13;
+.btn-ghost {&#13;
+  background: transparent;&#13;
+  color: var(--text-1);&#13;
+  border-color: var(--line);&#13;
+}&#13;
+.btn-ghost:hover { background: var(--surface-2); }&#13;
+&#13;
+/* Inputs (applies to form widgets) */&#13;
+.input, input[type="text"], input[type="search"], textarea, select {&#13;
+  background: var(--surface-2);&#13;
+  color: var(--text-1);&#13;
+  border: 1px solid var(--line);&#13;
+  border-radius: var(--radius-sm);&#13;
+  padding: 10px 12px;&#13;
+  width: 100%;&#13;
+}&#13;
+.input:focus, input:focus, textarea:focus, select:focus {&#13;
+  outline: 2px solid var(--brand-accent);&#13;
+  border-color: transparent;&#13;
+}&#13;
+&#13;
+/* Links panel */&#13;
+.link {&#13;
+  display: inline-flex;&#13;
+  align-items: center;&#13;
+  gap: 8px;&#13;
+  font-weight: 600;&#13;
+  color: var(--brand-accent);&#13;
+}&#13;
+.link:hover { text-decoration: underline; }&#13;
+&#13;
+/* Hero section (optional) */&#13;
+.hero {&#13;
+  border: 1px solid var(--line);&#13;
+  border-radius: var(--radius-lg);&#13;
+  background:&#13;
+    radial-gradient(600px 320px at 100% -20%, rgba(0,163,163,0.18), transparent 60%),&#13;
+    radial-gradient(700px 360px at -10% 120%, rgba(11,95,255,0.20), transparent 60%),&#13;
+    var(--surface-1);&#13;
+  padding: var(--space-7);&#13;
+  margin-bottom: var(--space-7);&#13;
+}&#13;
+&#13;
+.hero h1 { margin-bottom: var(--space-2); }&#13;
+.hero p  { font-size: var(--font-size-lg); color: var(--text-2); }&#13;
+&#13;
+/* Widget shell (for any custom widget content) */&#13;
+.widget-panel {&#13;
+  padding: var(--space-5);&#13;
+  border: 1px solid var(--line);&#13;
+  border-radius: var(--radius-md);&#13;
+  background: var(--surface-2);&#13;
+}</css>
+        <name>10-components</name>
+        <sys_class_name>sp_css</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 19:49:33</sys_created_on>
+        <sys_id>8c23e700935872108543b2597bba1043</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>10-components</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sp_css_8c23e700935872108543b2597bba1043</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-25 19:49:33</sys_updated_on>
+        <turn_off_scss_compilation>false</turn_off_scss_compilation>
+    </sp_css>
+</record_update>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <alternate_portal/>
+        <communication_channels/>
+        <css_variables/>
+        <dark_theme/>
+        <default>false</default>
+        <embeddable_macroponents/>
+        <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
+        <enable_embeddables>false</enable_embeddables>
+        <enable_favorites>false</enable_favorites>
+        <hide_portal_name>false</hide_portal_name>
+        <homepage/>
+        <icon/>
+        <inactive>false</inactive>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page/>
+        <logo>5b50ab0c931872108543b2597bba1063</logo>
+        <logo_alt_text/>
+        <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
+        <quick_start_config/>
+        <rtl_enabled>false</rtl_enabled>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sc_category_page/>
+        <search_application/>
+        <search_results_configuration/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu/>
+        <sqanda_knowledge_base/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 19:25:05</sys_created_on>
+        <sys_id>171d17c4931872108543b2597bba10dd</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Hack4Good</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sp_portal_171d17c4931872108543b2597bba10dd</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-25 19:54:36</sys_updated_on>
+        <theme display_value="Stock">79315153cb33310000f8d856634c9c4b</theme>
+        <title>Hack4Good</title>
+        <ts_index_group/>
+        <url_suffix>h4g</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="delete_multiple" query="documentkey=171d17c4931872108543b2597bba10dd"/>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#f1ffea</average_image_color>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <file_name>logo</file_name>
+        <hash>708a8233196c946dcc8db84f6bee61653db43f4cdf68d45ae6aa56f50c7c6b38</hash>
+        <image_height>73</image_height>
+        <image_width>253</image_width>
+        <size_bytes>3785</size_bytes>
+        <size_compressed>3763</size_compressed>
+        <state>available</state>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 19:37:05</sys_created_on>
+        <sys_id>5b50ab0c931872108543b2597bba1063</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-25 19:37:05</sys_updated_on>
+        <table_name>ZZ_YYsp_portal</table_name>
+        <table_sys_id>171d17c4931872108543b2597bba10dd</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAA/w==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="logo" sys_id="5b50ab0c931872108543b2597bba1063">5b50ab0c931872108543b2597bba1063</sys_attachment>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 19:37:05</sys_created_on>
+        <sys_id>db50ab0c931872108543b2597bba1063</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>5004</length>
+        <position>1</position>
+        <sys_attachment display_value="logo" sys_id="5b50ab0c931872108543b2597bba1063">5b50ab0c931872108543b2597bba1063</sys_attachment>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 19:37:05</sys_created_on>
+        <sys_id>5f50ab0c931872108543b2597bba1063</sys_id>
+    </sys_attachment_doc>
+</record_update>
