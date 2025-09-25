@@ -41,18 +41,18 @@
         <lookup_value/>
         <macro/>
         <macroponent/>
-        <mandatory>true</mandatory>
+        <mandatory>false</mandatory>
         <map_to_field>false</map_to_field>
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
-        <name>technical_decencies</name>
+        <name>technical_dependencies</name>
         <not_available_conversation>false</not_available_conversation>
         <order>520</order>
         <post_insert_script/>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <published_ref/>
-        <question_text>Are there any technical decencies for the proposed solution?</question_text>
+        <question_text>Are there any technical dependencies for the proposed solution?</question_text>
         <read_only>false</read_only>
         <read_roles/>
         <read_script/>
@@ -82,14 +82,14 @@
         <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
         <sys_created_on>2025-09-24 20:04:02</sys_created_on>
         <sys_id>5edc9af393c832108543b2597bba1049</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>technical_decencies</sys_name>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Are there any technical dependencies for the proposed solution?</sys_name>
         <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
         <sys_update_name>item_option_new_5edc9af393c832108543b2597bba1049</sys_update_name>
         <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-24 20:06:28</sys_updated_on>
+        <sys_updated_on>2025-09-25 16:18:33</sys_updated_on>
         <table/>
         <tooltip/>
         <topic_block/>

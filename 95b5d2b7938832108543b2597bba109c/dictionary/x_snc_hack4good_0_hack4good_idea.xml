@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="e0761af7938832108543b2597bba10e6" extends="task" label="Hack4Good Idea" max_length="40" name="x_snc_hack4good_0_hack4good_idea" type="collection">
+    <element audit="true" db_object_id="e0761af7938832108543b2597bba10e6" extends="task" label="Hack4Good Idea" max_length="40" name="x_snc_hack4good_0_hack4good_idea" type="collection">
+        <element label="Contact email" max_length="120" name="contact_email" type="string"/>
         <element choice="1" label="Focus area" max_length="40" name="focus_area" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Cause and Cure" sequence="10" value="cure"/>
