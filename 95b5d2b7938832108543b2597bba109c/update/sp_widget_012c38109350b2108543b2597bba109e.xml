@@ -1,50 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($scope, $element, $timeout) {
+        <client_script><![CDATA[api.controller = function($scope, $element, $timeout, $window) {
   var c = this;
   var scroller;
+  var ideaListUrl = '';
+
+  if ($window && $window.location) {
+    var loc = $window.location;
+    var origin = loc.origin;
+
+    if (!origin && loc.protocol && loc.host) {
+      origin = loc.protocol + '//' + loc.host;
+    }
+
+    if (origin) {
+      ideaListUrl = origin + '/now/nav/ui/classic/params/target/x_snc_hack4good_0_hack4good_idea_list.do';
+    }
+  }
 
   c.steps = [
     {
       id: 1,
-      title: "Submit the record",
-      detail: "Complete the metadata form and click Submit to generate your new idea record."
+      title: 'Submit the record',
+      detail: 'Complete this form and click Submit to generate your new idea record.'
     },
     {
       id: 2,
-      title: "Open the idea table",
-      detail: "In the Navigator, open x_snc_hack4good_0_hack4good_idea.list to view all idea records."
+      title: 'Open the idea table',
+      detail: 'Click here to view all idea records on the Hack4Good idea table.',
+      link: ideaListUrl ? {
+        text: 'Click here',
+        href: ideaListUrl,
+        target: '_new'
+      } : null,
+      linkSuffix: ' to view all idea records on the Hack4Good idea table.'
     },
     {
       id: 3,
-      title: "Select your entry",
-      detail: "Use the filter or sorting to locate the record you just submitted, then open it."
+      title: 'Select your entry',
+      detail: 'Use the filter or sorting to locate the record you just submitted, then click the checkbox to select it.'
     },
     {
       id: 4,
-      title: "Create application file",
-      detail: "From the Actions menu, choose Create application file to register the record with the app."
+      title: 'Create application file',
+      detail: 'From the Actions menu, choose Create application file to register the record with the app.'
     },
     {
       id: 5,
-      title: "Confirm the dialog",
-      detail: "When the Create Application File from Record dialog appears, click OK to generate the file."
+      title: 'Confirm the dialog',
+      detail: 'When the Create Application File from Record dialog appears, click OK to generate the file.'
     },
     {
       id: 6,
-      title: "Commit in Studio",
-      detail: "Launch Studio for the scope, review the pending change, and commit it to your local repo."
+      title: 'Commit in Studio',
+      detail: 'Launch Studio for the scope, review the pending change, and commit it to your local repo.'
     },
     {
       id: 7,
-      title: "Sync to GitHub",
-      detail: "Push the committed update to your fork so the new application file is available online."
-    },
-    {
-      id: 8,
-      title: "Open a pull request",
-      detail: "In GitHub, compare your fork with the upstream repo and submit a Pull Request for review."
+      title: 'Open a pull request',
+      detail: 'In GitHub, compare your fork with the upstream repo and submit a Pull Request for review.'
     }
   ];
 
@@ -89,12 +104,14 @@
         <controller_as>c</controller_as>
         <css>.h4g-tutorial {
   position: relative;
+  width: 100%;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 24px 64px;
   color: #1f2933;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
 }
 
 .h4g-header {
@@ -119,6 +136,7 @@
 
 .h4g-track-wrapper {
   position: relative;
+  width: 100%;
   margin-top: 16px;
 }
 
@@ -155,10 +173,12 @@
 
 .h4g-tutorial-track {
   display: flex;
+  width: 100%;
   gap: 20px;
   overflow-x: auto;
   padding-bottom: 8px;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 .h4g-tutorial-track:focus {
@@ -311,7 +331,10 @@
       <article class="h4g-step" role="listitem" ng-repeat="step in c.steps track by step.id">
         <div class="h4g-step-number">{{::step.id}}</div>
         <h4 class="h4g-step-title">{{::step.title}}</h4>
-        <p class="h4g-step-text" ng-bind="::step.detail"></p>
+        <p class="h4g-step-text" ng-if="step.link">
+          <a ng-href="{{::step.link.href}}" ng-attr-target="{{::step.link.target}}" rel="noopener">{{::step.link.text}}</a>{{::step.linkSuffix}}
+        </p>
+        <p class="h4g-step-text" ng-if="!step.link" ng-bind="::step.detail"></p>
       </article>
     </div>
     <button type="button" class="h4g-scroll-btn right" ng-click="c.scroll(1)" ng-disabled="!c.canScrollRight" aria-label="Scroll right">
