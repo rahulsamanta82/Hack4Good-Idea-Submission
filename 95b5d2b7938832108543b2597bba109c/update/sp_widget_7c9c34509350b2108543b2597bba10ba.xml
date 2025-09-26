@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller = function($scope, $element, $timeout) {
+        <client_script><![CDATA[api.controller = function($scope, $element, $timeout, $window) {
   var c = this;
   var scroller;
+  var recordLinkBase = '';
+
+  if ($window && $window.location) {
+    var loc = $window.location;
+    var origin = loc.origin;
+
+    if (!origin && loc.protocol && loc.host) {
+      origin = loc.protocol + '//' + loc.host;
+    }
+
+    if (origin) {
+      recordLinkBase = origin + '/now/nav/ui/classic/params/target/x_snc_hack4good_0_hack4good_idea.do%3Fsys_id%3D';
+    }
+  }
 
   c.canScrollLeft = false;
   c.canScrollRight = false;
@@ -36,23 +50,50 @@
     return '';
   }
 
+  function truncateText(value, maxLength) {
+    if (!value) {
+      return '';
+    }
+    var text = value.toString().replace(/^\s+|\s+$/g, '');
+    if (!maxLength || text.length <= maxLength) {
+      return text;
+    }
+    var shortened = text.substring(0, Math.max(maxLength - 3, 1)).replace(/\s+$/g, '');
+    return shortened + '...';
+  }
+
+  function buildRecordLink(sysId) {
+    if (!sysId || !recordLinkBase) {
+      return '';
+    }
+    return recordLinkBase + sysId + '?sys_id=' + sysId;
+  }
+
   function buildCards() {
     var submissions = (c.data && Array.isArray(c.data.submissions)) ? c.data.submissions : [];
     return submissions.map(function(submission, index) {
-      var title = firstAvailable(submission, ['short_description', 'name', 'description']);
+      var sysId = valueOf(submission.sys_id);
+      var title = firstAvailable(submission, ['short_description', 'name', 'description']) || 'Idea submission';
+      title = truncateText(title, 120);
+
       var summary = valueOf(submission.description);
       if (!summary) {
         summary = firstAvailable(submission, ['short_description']);
       }
+      summary = truncateText(summary, 320);
+
+      var focus = truncateText(firstAvailable(submission, ['focus_area']), 80);
+      var submittedBy = truncateText(firstAvailable(submission, ['sys_created_by', 'submitted_by', 'u_submitted_by']), 80);
 
       var card = {
         id: index + 1,
         number: valueOf(submission.number),
-        title: title || 'Idea submission',
+        title: title,
         summary: summary,
-        focus: firstAvailable(submission, ['focus_area']),
-        submittedBy: firstAvailable(submission, ['sys_created_by', 'submitted_by', 'u_submitted_by']),
-        createdOn: valueOf(submission.sys_created_on)
+        focus: focus,
+        submittedBy: submittedBy,
+        createdOn: valueOf(submission.sys_created_on),
+        recordLink: buildRecordLink(sysId)
       };
 
       return card;
@@ -241,11 +282,27 @@
   font-weight: 500;
 }
 
+.h4g-submission-number a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.h4g-submission-number a:hover {
+  text-decoration: underline;
+}
+
 .h4g-submission-name {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
   color: #111827;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 2.8em;
 }
 
 .h4g-submission-summary {
@@ -253,11 +310,19 @@
   font-size: 14px;
   line-height: 1.5;
   color: #334155;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 4.5em;
 }
 
 .h4g-submission-summary.empty {
   font-style: italic;
   color: #64748b;
+  display: block;
+  max-height: none;
 }
 
 .h4g-submission-tags {
@@ -430,7 +495,10 @@
     <div class="h4g-submissions-track" tabindex="0" role="list">
       <article class="h4g-submission-card" role="listitem" ng-repeat="submission in c.cards track by submission.id">
         <div class="h4g-submission-meta">
-          <span class="h4g-submission-number" ng-if="submission.number">{{::submission.number}}</span>
+          <span class="h4g-submission-number" ng-if="submission.number">
+            <a ng-if="submission.recordLink" ng-href="{{::submission.recordLink}}" ng-attr-target="_new" rel="noopener">{{::submission.number}}</a>
+            <span ng-if="!submission.recordLink">{{::submission.number}}</span>
+          </span>
           <span class="h4g-submission-date" ng-if="submission.createdOn">Submitted {{::submission.createdOn}}</span>
         </div>
         <h4 class="h4g-submission-name">{{::submission.title}}</h4>
@@ -447,7 +515,7 @@
     </button>
   </div>
 </div>
-<BR>]]></template>
+]]></template>
     </sp_widget>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>7c9c34509350b2108543b2597bba10ba</id>
