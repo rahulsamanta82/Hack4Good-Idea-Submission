@@ -28,14 +28,14 @@
         <sc_callable>false</sc_callable>
         <show_draft_actions>false</show_draft_actions>
         <show_triggered_flows>false</show_triggered_flows>
-        <status>published</status>
+        <status>draft</status>
         <substatus/>
         <sys_class_name>sys_hub_flow</sys_class_name>
         <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
         <sys_created_on>2025-09-25 17:18:44</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>a0b0834c935472108543b2597bba104d</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>80</sys_mod_count>
         <sys_name>Populate solution proposal</sys_name>
         <sys_overrides/>
         <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
@@ -43,11 +43,11 @@
         <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
         <sys_update_name>sys_hub_flow_a0b0834c935472108543b2597bba104d</sys_update_name>
         <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-25 18:51:27</sys_updated_on>
+        <sys_updated_on>2025-09-26 16:39:01</sys_updated_on>
         <type>flow</type>
         <updation_source/>
         <version>2</version>
-        <version_record display_value="Created 2025-09-25 11:51:27">b2e5d38c93d472108543b2597bba1063</version_record>
+        <version_record display_value="Created 2025-09-26 09:38:56">1b2140e09350f2108543b2597bba1022</version_record>
     </sys_hub_flow>
     <sys_translated_text action="delete_multiple" query="documentkey=a0b0834c935472108543b2597bba104d"/>
     <sys_variable_value action="delete_multiple" query="document_key=a0b0834c935472108543b2597bba104d"/>
@@ -298,12 +298,12 @@
         <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
         <sys_created_on>2025-09-25 17:19:25</sys_created_on>
         <sys_id>aad0c74c935472108543b2597bba102a</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_scope/>
         <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-25 18:51:23</sys_updated_on>
+        <sys_updated_on>2025-09-26 16:38:56</sys_updated_on>
         <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
-        <trigger_inputs>H4sIAAAAAAAA/9VY227jNhD9FUFPLeACuthxnLdtku0G2G5Qx9s+BKlAiaRNlCZdiVLiXeTfO9TNsi6OHStb5yWIOBTn8OjMGdL3302OfMLNC3OGfE7MgcmEIqFAfLZeERhWetgTaKljSyQwUjJcmxcqjMnApKFczshyxZGCyRTxCAZliEloXtgDM0E8Jnfr6AbDSvB+uky+ppmH4fnJi0TgLVDwz3AuJfasyv8MEwRTMYsgyfrP/I1POv4bxI2bLB4sGMchEebF/cPAXKEQMimN4nstxDSUgAZo4hArcG3XcSzLOR/a/pnr2w52EbEsWLBOSw26amFns2/ypIjABJeUNIgLCcK3gq/LGQvgPSNpiZ4i9g1WP7f0PEoAe0CyWPno5YRkw8FCsoDcrhSTIhvJcGZByeOl+JLh11QSimKuCiphJI5gPbLSkDWIHBG9W8jHaZHwIxPp7vIglwHi5RNSKmR+rEikCaeMA/Vexk0k4zBFP72+vJ1eeX99mF1+up560+u72fTmcnZ9ZT6n+/L+jfWKGcIci5dt57n8/h8Z4foDinjpA5qBGQUhW6kPgWJJIcDnwUbUl1JglrLSEHZQhKJtYRe736Vsy+rUdlDJWOj77+s/mhLOBg/T7dkZQqD3Dt36tKLb6s5boKkWEqq726XgfGQfCQ8t638Sce5Pr9XwUmLCrzbLmRCcz0HVTKxipdl6REJFnpIewtir8KinAqaXRJ3t7flFBYexgBe88ns0dZzSVvL3mUUA9x6qsOAmXRLi9HO+5DQWhoQPB3+MIA6BGmUUvkZvlmieM0rvCCeBqoiAfo2qT7+zKGJiXkFdJk05aOQs04GYjGJLWe7oyOQPfRZxk/SkRmatmA+uZNum1CfUsca6jm3L9altja0Roti1rMCpVHITTCdKVZPEm1T0YfUcpWLke0ivTnEO3qpWw14ySrY1WJCgJZLbxmU/0OyeoDkaWs3+3IP8r5RlNny1rc5dW+u59yOcIHgD72uDezog5fIRrPcV7ufDSXEeyljguh3pNQ0mjM0M46ecv597dEIqQ7IbwPaMU/LADe2FcJFY9+B+LrX9CRkSC0zPBb/zR5OJHyCH0vHZmDh2zf02MFqxvQvXe0FtSZtcuxywVThJm94O8L4jADZ88GCAxztgLsxW/8ti78PpHhdEeAA19Lj2sobhzTnciItYv9XeSJ1s6vvYiqfnk2Bkj8fBGG4tUPF0SHxkD50RmozP3PNRreIbUHbBVC3M/JC7TLSOUiAdbvA1C53W5fwtZRsRpXQ7OrxLCzjHpu+gLEmlU+rPYqSmIkPjixS/3GzmGXcEGmB6oe2rXe+DQn9Y421h+FItGucFSP0rjG+l1ufMDlZO7kpVE0myvdejr1RkeD6aULfdYuikzWI2YLphnvzxYs8KSTprre2csa/gk9a66TwYvELCNZlUTww7jjR9kWL3TorzdqS4Rx+jilrsvEe+Buw7amHpueKYPqZzEk/SqnlfSQMCBiQxGDXyXxIJNvy1oRYEKOVwXoaEhs5+rGtXu0gTSqngHwskO4E3uhkMG/kB6vQaVU0K/d6ACR6j0cjtOA9P6jfgNkAv4D35tnVwVSRtRbazdx22bn3N1u5Vkey2IvbsS73uur05Hbfr1vb00q6Pbzy77u8tKE60pTz8Bz6wWsdRHwAA</trigger_inputs>
+        <trigger_inputs>H4sIAAAAAAAA/9VZXXOjNhT9KwxP7Uw6w4cdx3nbJtluZrabqe1tHzIpI5BkMytLLggSN7P/vVd82BiEYweydV4yQQLdcw/nnivh+2eTIZ8w89K8EhyHMhTcPDNDLknEEZutVwSmgnIqhrkl4hhJEa3NS4pYTM5MGonljCxXDEmyGRQRJpF5aVvWmZkilpDpOr7FsBgswdFyZ1mzuAXG/r75A65wGMNq6z93BoNFyHBEuHl5/3BmrlAEq0gV47k2Faow5+cIYYKswLVdx7Es52Jg++eubzvYRcSnsKAucw00qSGhmh15koRjgjepNxmKCMJ3nG0HFsBwzsUSPcXhvxBgYKnFIkIJJBKQfHZz6RWU5MPBQoQBuVtlCLMRiXxWPBMIliz5lzwRRSahKGGyJBNGkhjWIyuFWsGQUaLe4nQhHidlvI8hzzIs8DIRILa5QlJGoZ9IEivylwITdr1dzoTJ+ZxEXshXiVRsPSIuY08KD2HsVXhUtwKm71me3j+JCpEjLhbzsvTy3OCuOIjClfwQyDAthfb9bKvgKOHwgLd5H00dZ7Rt+PscxgD3/tmkJTfZkjBPPxdLThJuCHhx8McIkgiokUYOB266XaJ5wSidEkYCWREB/RpXr34P4zjk8wrqTdCMg0bMTTgQk1GmlMeOOwZ/6LOIm6SnNTJrxXx0Jds2pT6hjjVSdWxbrk9ta2QNEcWuZQVOpZKbYFpRypok3qSij6vnOBMjO0B6dYoL8Fa1Gg6SUbqrwZIEJZHCNq76gWb3BM1R0Gr25x7lfxtZ5sPXu+rcl1rNNsvCea1vIpwieAIfaoMHOiBl4hGs9xXu56Pg2zwSCcd1O1JrGiE3tncYPxX8/dyjE1IRkf0Adu84JQ/c0l4KF/F1D+7nUtsfkwGxwPRc8Dt/OB77AXIoHZ2PiGPX3G8LQ4vtXbjeC2pLdXJtc0CtcFKd3o7wvg4AGz54NMDuDlgIU+t/+dz7cLrHBeEeQI08prysYXhzFmJSzvVb7Y3Q6ba+u1Y8vRgHQ3s0CkZwaoGKpwPiI3vgDNF4dO5eDGsV34CyD6bUMPNDzjLxOs6AtLjB13yq33PNKcs2JlKqdnR8l+awj82eQXmQSqdUr8XITEVExhfBf7nd3mdMCTTA7EDbV7s+BIV6scbbwvCFXDT2CxD6VxjfCa32mS2snNyRqiaSdDfXzkcqMrgYjqmrtxg61lnMFkw7zJPfXhxYIWlrren2GYcKPtXWTevG4BUSrsmkumPYs6XpixS7d1KctyPF7byNKmux9Rz5GrDvqIVl+4oufUzFJJ6gVfO+FgZMGBDECKlRfEkk2PDXhlwQoJTBfhkCGip6V9eudpEmlI2CfyyQfAfe6GYwbBQbqNNrVDUp9HsCJniEhkO3ZT88rp+AdYBewHvybevoqkh1Rba3dx23bn1NbfeqSHZXEQf2pV6z1jenbllr29NLWXdvPPvO7xoUp99SZsUH1loLyRjxstrdKbvi96p9ptVqWfXP1E9ezANvgYJvg7kQ2LMq/8MZGTX965Oa/w3mjdt8/jg3C2iAxg5p+V3SsipuVtJSgy417Gzz3udXOXGH2NXF//RTZFdx0pAB9V7OTSySKEM/ubm6m1x7f32YXX26mXiTm+lscns1u7k+SLxFuh9DwtQL5MnSz+pKJ+qH/wDmF/eqUR8AAA==</trigger_inputs>
         <trigger_outputs/>
         <trigger_type>record_create</trigger_type>
         <updation_source/>
