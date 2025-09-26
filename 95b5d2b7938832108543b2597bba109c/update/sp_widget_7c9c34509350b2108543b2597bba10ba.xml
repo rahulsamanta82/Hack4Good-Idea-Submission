@@ -1,12 +1,366 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {
-  /* widget controller */
+        <client_script><![CDATA[api.controller = function($scope, $element, $timeout) {
   var c = this;
+  var scroller;
+
+  c.canScrollLeft = false;
+  c.canScrollRight = false;
+
+  c.cards = [];
+  c.hasCards = false;
+
+  function valueOf(field) {
+    if (!field) {
+      return '';
+    }
+    var displayValue = field.display_value;
+    if (displayValue) {
+      return displayValue;
+    }
+    var rawValue = field.value;
+    if (rawValue) {
+      return rawValue;
+    }
+    return '';
+  }
+
+  function firstAvailable(submission, keys) {
+    for (var i = 0; i < keys.length; i++) {
+      var text = valueOf(submission[keys[i]]);
+      if (text) {
+        return text;
+      }
+    }
+    return '';
+  }
+
+  function buildCards() {
+    var submissions = (c.data && Array.isArray(c.data.submissions)) ? c.data.submissions : [];
+    return submissions.map(function(submission, index) {
+      var title = firstAvailable(submission, ['short_description', 'name', 'description']);
+      var summary = valueOf(submission.description);
+      if (!summary) {
+        summary = firstAvailable(submission, ['short_description']);
+      }
+
+      var card = {
+        id: index + 1,
+        number: valueOf(submission.number),
+        title: title || 'Idea submission',
+        summary: summary,
+        focus: firstAvailable(submission, ['focus_area']),
+        submittedBy: firstAvailable(submission, ['sys_created_by', 'submitted_by', 'u_submitted_by']),
+        createdOn: valueOf(submission.sys_created_on)
+      };
+
+      return card;
+    }).filter(function(card) {
+      return card.number || card.title || card.summary;
+    });
+  }
+
+  function refreshCards() {
+    c.cards = buildCards();
+    c.hasCards = c.cards.length > 0;
+    setupScroller();
+  }
+
+  c.scroll = function(direction) {
+    if (!scroller) {
+      return;
+    }
+    var distance = Math.max(scroller.clientWidth * 0.8, 240);
+    scroller.scrollLeft += distance * direction;
+    $timeout(updateScrollState, 250);
+  };
+
+  function updateScrollState() {
+    if (!scroller) {
+      c.canScrollLeft = false;
+      c.canScrollRight = false;
+      return;
+    }
+    var tolerance = 5;
+    var maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+    c.canScrollLeft = scroller.scrollLeft > tolerance;
+    c.canScrollRight = scroller.scrollLeft < (maxScrollLeft - tolerance);
+    $scope.$applyAsync();
+  }
+
+  function teardownScroller() {
+    if (scroller) {
+      scroller.removeEventListener('scroll', updateScrollState);
+      scroller = null;
+    }
+  }
+
+  function setupScroller() {
+    $timeout(function() {
+      teardownScroller();
+      scroller = $element[0].querySelector('.h4g-submissions-track');
+      if (!scroller) {
+        updateScrollState();
+        return;
+      }
+      scroller.scrollLeft = 0;
+      updateScrollState();
+      scroller.addEventListener('scroll', updateScrollState);
+    }, 0);
+  }
+
+  $scope.$watch(function() {
+    return c.data && c.data.submissions;
+  }, function() {
+    refreshCards();
+  }, true);
+
+  $scope.$on('$destroy', function() {
+    teardownScroller();
+  });
+
+  refreshCards();
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css>.h4g-submissions {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 64px;
+  color: #1f2933;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
+}
+
+.h4g-submissions-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.h4g-submissions-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.h4g-submissions-intro {
+  margin: 0;
+  color: #52606d;
+  font-size: 14px;
+}
+
+.h4g-submissions-track-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.h4g-submissions-track-wrapper::before,
+.h4g-submissions-track-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 48px;
+  height: 100%;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  z-index: 1;
+}
+
+.h4g-submissions-track-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.h4g-submissions-track-wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.h4g-submissions-track-wrapper.show-left::before {
+  opacity: 1;
+}
+
+.h4g-submissions-track-wrapper.show-right::after {
+  opacity: 1;
+}
+
+.h4g-submissions-track {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+.h4g-submissions-track:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.3);
+}
+
+.h4g-submission-card {
+  min-width: 280px;
+  max-width: 320px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #dce3f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+}
+
+.h4g-submission-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 12px;
+  color: #52606d;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.h4g-submission-number {
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+.h4g-submission-date {
+  font-weight: 500;
+}
+
+.h4g-submission-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.h4g-submission-summary {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.h4g-submission-summary.empty {
+  font-style: italic;
+  color: #64748b;
+}
+
+.h4g-submission-tags {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.h4g-submission-focus {
+  display: inline-flex;
+  align-items: center;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.h4g-submission-submitter {
+  font-size: 12px;
+  color: #475569;
+}
+
+.h4g-submissions-scroll {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: #1d4ed8;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 18px rgba(29, 78, 216, 0.3);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  z-index: 2;
+}
+
+.h4g-submissions-scroll:hover {
+  background: #1e40af;
+}
+
+.h4g-submissions-scroll:disabled {
+  background: #cbd5f5;
+  color: #ffffff;
+  cursor: default;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.h4g-submissions-scroll.left {
+  left: 12px;
+}
+
+.h4g-submissions-scroll.right {
+  right: 12px;
+}
+
+.h4g-submissions-scroll .glyphicon {
+  font-size: 14px;
+}
+
+.h4g-submissions-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.h4g-submissions-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.h4g-submissions-track::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 4px;
+}
+
+.h4g-submissions-empty {
+  border: 1px dashed #cbd5f5;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: #52606d;
+  background: #f1f5f9;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .h4g-submissions {
+    padding: 20px 32px;
+  }
+
+  .h4g-submission-card {
+    min-width: 240px;
+  }
+}
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -60,8 +414,37 @@
         <sys_update_name>sp_widget_7c9c34509350b2108543b2597bba10ba</sys_update_name>
         <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
         <sys_updated_on>2025-09-26 02:40:24</sys_updated_on>
-        <template><![CDATA[<div>
- 
+        <template><![CDATA[<div class="h4g-submissions" role="region" aria-label="Submissions carousel">
+  <div class="h4g-submissions-header">
+    <h3 class="h4g-submissions-title">Submissions carousel</h3>
+    <p class="h4g-submissions-intro" ng-if="c.hasCards">Browse Hack4Good idea submissions.</p>
+  </div>
+  <div class="h4g-submissions-empty" ng-if="!c.hasCards">
+    <p>No submissions found yet.</p>
+  </div>
+  <div class="h4g-submissions-track-wrapper" ng-if="c.hasCards" ng-class="{'show-left': c.canScrollLeft, 'show-right': c.canScrollRight}">
+    <button type="button" class="h4g-submissions-scroll left" ng-click="c.scroll(-1)" ng-disabled="!c.canScrollLeft" aria-label="Scroll left">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </button>
+    <div class="h4g-submissions-track" tabindex="0" role="list">
+      <article class="h4g-submission-card" role="listitem" ng-repeat="submission in c.cards track by submission.id">
+        <div class="h4g-submission-meta">
+          <span class="h4g-submission-number" ng-if="submission.number">{{::submission.number}}</span>
+          <span class="h4g-submission-date" ng-if="submission.createdOn">Submitted {{::submission.createdOn}}</span>
+        </div>
+        <h4 class="h4g-submission-name">{{::submission.title}}</h4>
+        <p class="h4g-submission-summary" ng-if="submission.summary">{{::submission.summary}}</p>
+        <p class="h4g-submission-summary empty" ng-if="!submission.summary">No description provided.</p>
+        <div class="h4g-submission-tags" ng-if="submission.focus || submission.submittedBy">
+          <span class="h4g-submission-focus" ng-if="submission.focus">{{::submission.focus}}</span>
+          <span class="h4g-submission-submitter" ng-if="submission.submittedBy">Submitted by {{::submission.submittedBy}}</span>
+        </div>
+      </article>
+    </div>
+    <button type="button" class="h4g-submissions-scroll right" ng-click="c.scroll(1)" ng-disabled="!c.canScrollRight" aria-label="Scroll right">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </button>
+  </div>
 </div>]]></template>
     </sp_widget>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
