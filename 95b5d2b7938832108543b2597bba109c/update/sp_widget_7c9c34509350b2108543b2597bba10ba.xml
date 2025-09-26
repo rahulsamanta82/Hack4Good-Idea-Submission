@@ -1,12 +1,276 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+﻿<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {
-  /* widget controller */
+        <client_script><![CDATA[api.controller = function($scope, $element, $timeout) {
   var c = this;
+  var scroller;
+
+  c.steps = [
+    {
+      id: 1,
+      title: "Submit the record",
+      detail: "Complete the metadata form and click Submit to generate your new idea record."
+    },
+    {
+      id: 2,
+      title: "Open the idea table",
+      detail: "In the Navigator, open x_snc_hack4good_0_hack4good_idea.list to view all idea records."
+    },
+    {
+      id: 3,
+      title: "Select your entry",
+      detail: "Use the filter or sorting to locate the record you just submitted, then open it."
+    },
+    {
+      id: 4,
+      title: "Create application file",
+      detail: "From the Actions menu, choose Create application file to register the record with the app."
+    },
+    {
+      id: 5,
+      title: "Confirm the dialog",
+      detail: "When the Create Application File from Record dialog appears, click OK to generate the file."
+    },
+    {
+      id: 6,
+      title: "Commit in Studio",
+      detail: "Launch Studio for the scope, review the pending change, and commit it to your local repo."
+    },
+    {
+      id: 7,
+      title: "Sync to GitHub",
+      detail: "Push the committed update to your fork so the new application file is available online."
+    },
+    {
+      id: 8,
+      title: "Open a pull request",
+      detail: "In GitHub, compare your fork with the upstream repo and submit a Pull Request for review."
+    }
+  ];
+
+  c.canScrollLeft = false;
+  c.canScrollRight = false;
+
+  c.scroll = function(direction) {
+    if (!scroller) {
+      return;
+    }
+    var distance = Math.max(scroller.clientWidth * 0.8, 240);
+    scroller.scrollLeft += distance * direction;
+    $timeout(updateScrollState, 250);
+  };
+
+  function updateScrollState() {
+    if (!scroller) {
+      return;
+    }
+    var tolerance = 5;
+    var maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+    c.canScrollLeft = scroller.scrollLeft > tolerance;
+    c.canScrollRight = scroller.scrollLeft < (maxScrollLeft - tolerance);
+    $scope.$applyAsync();
+  }
+
+  $timeout(function() {
+    scroller = $element[0].querySelector('.h4g-tutorial-track');
+    if (!scroller) {
+      return;
+    }
+    updateScrollState();
+    scroller.addEventListener('scroll', updateScrollState);
+  }, 0);
+
+  $scope.$on('$destroy', function() {
+    if (scroller) {
+      scroller.removeEventListener('scroll', updateScrollState);
+    }
+  });
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css><![CDATA[.h4g-tutorial {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 64px;
+  color: #1f2933;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.h4g-header {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.h4g-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.h4g-intro {
+  margin: 0;
+  color: #52606d;
+  font-size: 14px;
+}
+
+.h4g-track-wrapper {
+  position: relative;
+  margin-top: 16px;
+}
+
+.h4g-track-wrapper::before,
+.h4g-track-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 48px;
+  height: 100%;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  z-index: 1;
+}
+
+.h4g-track-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.h4g-track-wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.h4g-track-wrapper.show-left::before {
+  opacity: 1;
+}
+
+.h4g-track-wrapper.show-right::after {
+  opacity: 1;
+}
+
+.h4g-tutorial-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+}
+
+.h4g-tutorial-track:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.3);
+}
+
+.h4g-step {
+  min-width: 220px;
+  max-width: 280px;
+  background: #f8fafc;
+  border: 1px solid #dce4f2;
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.08);
+}
+
+.h4g-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.h4g-step-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.h4g-step-text {
+  margin: 0;
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.h4g-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: #1d4ed8;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 18px rgba(29, 78, 216, 0.3);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  z-index: 2;
+}
+
+.h4g-scroll-btn:hover {
+  background: #1e40af;
+}
+
+.h4g-scroll-btn:disabled {
+  background: #cbd5f5;
+  color: #ffffff;
+  cursor: default;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.h4g-scroll-btn.left {
+  left: 12px;
+}
+
+.h4g-scroll-btn.right {
+  right: 12px;
+}
+
+.h4g-scroll-btn .glyphicon {
+  font-size: 14px;
+}
+
+.h4g-tutorial-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.h4g-tutorial-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.h4g-tutorial-track::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .h4g-tutorial {
+    padding: 20px 40px;
+  }
+
+  .h4g-step {
+    min-width: 200px;
+  }
+}
+]]></css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -60,8 +324,26 @@
         <sys_update_name>sp_widget_7c9c34509350b2108543b2597bba10ba</sys_update_name>
         <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
         <sys_updated_on>2025-09-26 02:27:27</sys_updated_on>
-        <template><![CDATA[<div>
-  
+        <template><![CDATA[<div class="h4g-tutorial" role="region" aria-label="How to push a metadata record into application files">
+  <div class="h4g-header">
+    <h3 class="h4g-title">Push your metadata record into the application</h3>
+    <p class="h4g-intro">Slide through the steps after submitting your Hack4Good idea.</p>
+  </div>
+  <div class="h4g-track-wrapper" ng-class="{'show-left': c.canScrollLeft, 'show-right': c.canScrollRight}">
+    <button type="button" class="h4g-scroll-btn left" ng-click="c.scroll(-1)" ng-disabled="!c.canScrollLeft" aria-label="Scroll left">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </button>
+    <div class="h4g-tutorial-track" tabindex="0" role="list">
+      <article class="h4g-step" role="listitem" ng-repeat="step in c.steps track by step.id">
+        <div class="h4g-step-number">{{::step.id}}</div>
+        <h4 class="h4g-step-title">{{::step.title}}</h4>
+        <p class="h4g-step-text" ng-bind="::step.detail"></p>
+      </article>
+    </div>
+    <button type="button" class="h4g-scroll-btn right" ng-click="c.scroll(1)" ng-disabled="!c.canScrollRight" aria-label="Scroll right">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </button>
+  </div>
 </div>]]></template>
     </sp_widget>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
