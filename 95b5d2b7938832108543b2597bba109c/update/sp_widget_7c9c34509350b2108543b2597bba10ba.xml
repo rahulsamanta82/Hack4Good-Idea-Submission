@@ -15,7 +15,7 @@
     }
 
     if (origin) {
-      recordLinkBase = origin + '/now/nav/ui/classic/params/target/x_snc_hack4good_0_hack4good_idea.do?sys_id=';
+      recordLinkBase = origin + '/now/nav/ui/classic/params/target/x_snc_hack4good_0_hack4good_proposal.do?sys_id=';
     }
   }
 
@@ -73,12 +73,12 @@
     var submissions = (c.data && Array.isArray(c.data.submissions)) ? c.data.submissions : [];
     return submissions.map(function(submission, index) {
       var sysId = valueOf(submission.sys_id);
-      var title = firstAvailable(submission, ['short_description', 'name', 'description']) || 'Idea submission';
+      var title = firstAvailable(submission, ['project_name', 'focus_area', 'problem_statement']) || 'Submitted proposal';
       title = truncateText(title, 120);
 
-      var summary = valueOf(submission.description);
+      var summary = valueOf(submission.problem_statement);
       if (!summary) {
-        summary = firstAvailable(submission, ['short_description']);
+        summary = firstAvailable(submission, ['project_name']);
       }
       summary = truncateText(summary, 320);
 
@@ -87,18 +87,16 @@
 
       var card = {
         id: index + 1,
-        number: valueOf(submission.number),
         title: title,
         summary: summary,
         focus: focus,
-        submittedBy: submittedBy,
         createdOn: valueOf(submission.sys_created_on),
         recordLink: buildRecordLink(sysId)
       };
 
       return card;
     }).filter(function(card) {
-      return card.number || card.title || card.summary;
+      return card.title || card.focus || card.summary;
     });
   }
 
@@ -439,50 +437,49 @@
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[(function() {
-	/* populate the 'data' object */
-	/* e.g., data.table = $sp.getValue('table'); */
-	data.submissions = retrieveSubmissions();
+        <script><![CDATA[(function () {
+  // Options (optional): set a max in the widget instance
+  var MAX = parseInt(options.max_results || 20, 10);
 
-	function retrieveSubmissions() {
-		var gr = new GlideRecord('x_snc_hack4good_0_hack4good_idea');
-		gr.orderByDesc('sys_created_on');
-		gr.query();
-		var submissions = [];
-		while (gr.next()) {
-			var submission = {};
-			var elements = gr.getElements();
-			for (var i = 0; i < elements.length; i++) {
-				var el = elements[i];
-				var name = el.getName();
-				submission[name] = {
-					value: gr.getValue(name),
-					display_value: gr.getDisplayValue(name)
-				};
-			}
-			submissions.push(submission);
-		}
-		return submissions;
-	}
+  data.submissions = [];
 
+  var gr = new GlideRecord('x_snc_hack4good_0_hack4good_proposal');
+  gr.orderByDesc('sys_created_on');
+  gr.setLimit(MAX);
+  gr.query();
 
+  while (gr.next()) {
+    // Build a minimal, UI-friendly shape
+    var rec = {
+      sys_id: gr.getUniqueValue(),
+      created_on: gr.getValue('sys_created_on'),
+      project_name: gr.getDisplayValue('project_name') || gr.getValue('project_name') || '',
+      focus_area: gr.getDisplayValue('focus_area') || gr.getValue('focus_area') || '',
+      problem_statement: gr.getDisplayValue('problem_statement') || gr.getValue('problem_statement') || ''
+    };
+
+    // Skip records with no project name (optional guard)
+    if (!rec.project_name) continue;
+
+    data.submissions.push(rec);
+  }
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>earl.duque@servicenow.com</sys_created_by>
         <sys_created_on>2025-09-26 02:19:58</sys_created_on>
         <sys_id>7c9c34509350b2108543b2597bba10ba</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>H4G Submissions</sys_name>
         <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
         <sys_update_name>sp_widget_7c9c34509350b2108543b2597bba10ba</sys_update_name>
-        <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-26 03:52:11</sys_updated_on>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 19:36:57</sys_updated_on>
         <template><![CDATA[<div class="h4g-submissions" role="region" aria-label="Submissions carousel">
   <div class="h4g-submissions-header">
-    <h3 class="h4g-submissions-title">Submissions carousel</h3>
+    <h3 class="h4g-submissions-title">Proposal carousel</h3>
     <p class="h4g-submissions-intro" ng-if="c.hasCards">Browse Hack4Good idea submissions.</p>
   </div>
   <div class="h4g-submissions-empty" ng-if="!c.hasCards">
@@ -495,18 +492,17 @@
     <div class="h4g-submissions-track" tabindex="0" role="list">
       <article class="h4g-submission-card" role="listitem" ng-repeat="submission in c.cards track by submission.id">
         <div class="h4g-submission-meta">
-          <span class="h4g-submission-number" ng-if="submission.number">
-            <a ng-if="submission.recordLink" ng-href="{{::submission.recordLink}}" ng-attr-target="_new" rel="noopener">{{::submission.number}}</a>
-            <span ng-if="!submission.recordLink">{{::submission.number}}</span>
+          <span class="h4g-submission-number" ng-if="submission.title">
+            <a ng-if="submission.recordLink" ng-href="{{::submission.recordLink}}" ng-attr-target="_new" rel="noopener">{{::submission.title}}</a>
+            <span ng-if="!submission.recordLink">{{::submission.title}}</span>
           </span>
           <span class="h4g-submission-date" ng-if="submission.createdOn">Submitted {{::submission.createdOn}}</span>
         </div>
         <h4 class="h4g-submission-name">{{::submission.title}}</h4>
         <p class="h4g-submission-summary" ng-if="submission.summary">{{::submission.summary}}</p>
         <p class="h4g-submission-summary empty" ng-if="!submission.summary">No description provided.</p>
-        <div class="h4g-submission-tags" ng-if="submission.focus || submission.submittedBy">
+        <div class="h4g-submission-tags" ng-if="submission.focus">
           <span class="h4g-submission-focus" ng-if="submission.focus">{{::submission.focus}}</span>
-          <span class="h4g-submission-submitter" ng-if="submission.submittedBy">Submitted by {{::submission.submittedBy}}</span>
         </div>
       </article>
     </div>
