@@ -23,6 +23,9 @@
 .h4g-hero {
   text-align: center;
   margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #06354e;         /* same as footer background */
 }
 .h4g-hero .fa-check-circle {
   font-size: 42px;
@@ -31,12 +34,42 @@
 }
 .h4g-hero h1 {
   font-size: 28px;
-  margin: 0 0 8px;
+  margin: 0;
+  color: #e7ecf7;
   overflow-wrap: anywhere;              /* wrap long project names */
 }
 .h4g-hero .muted {
   color: #9fb0ce;
   margin: 0;
+}
+
+/* Intro paragraph */
+.h4g-intro {
+  margin: 12px 0 24px;
+  text-align: center;
+}
+
+.h4g-intro p {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #e7ecf7;
+  margin: 0;
+  position: relative;
+}
+
+.h4g-intro p .emoji {
+  font-size: 22px; /* slightly bigger than text */
+}
+
+.h4g-intro p::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: #63DF4E;
+  margin: 8px auto 0;
+  border-radius: 2px;
 }
 
 /* Steps with icons */
@@ -195,6 +228,64 @@
 .copy-feedback {
   font-size: 16px;
   color: #63DF4E;
+}
+
+/* Support footer */
+.h4g-support {
+  margin-top: 28px;
+  padding: 18px;
+  border-top: 1px solid #0a4661;
+  border-radius: 12px;
+  background: #06354e;           /* subtle dark background (like commit box) */
+  text-align: center;
+  font-size: 15px;
+  color: #e7ecf7;
+}
+
+.h4g-support a {
+  color: #e7ecf7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.h4g-support a:hover {
+  text-decoration: underline;
+}
+
+/* Slack icon styling + playful hover */
+.h4g-support .fa-slack {
+  margin-right: 6px;
+  font-size: 16px;
+  vertical-align: middle;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.h4g-support a:hover .fa-slack {
+  color: #e7ecf7;                /* brighten icon */
+  transform: rotate(-15deg) scale(1.2);
+}
+
+/* Slack icon with real brand colors */
+.h4g-support .fa-slack {
+  background: conic-gradient(
+    from 45deg,
+    #36C5F0 0deg 90deg,   /* Blue */
+    #2EB67D 90deg 180deg, /* Green */
+    #ECB22E 180deg 270deg,/* Yellow */
+    #E01E5A 270deg 360deg /* Red/Pink */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;        /* Firefox */
+  text-fill-color: transparent;
+  margin-right: 6px;
+  font-size: 18px;
+  vertical-align: middle;
+  transition: transform 0.25s ease;
+}
+
+.h4g-support a:hover .fa-slack {
+  transform: rotate(-15deg) scale(1.2);
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -317,14 +408,14 @@
         <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
         <sys_created_on>2025-09-28 16:16:34</sys_created_on>
         <sys_id>3e3f8681935032108543b2597bba102c</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>61</sys_mod_count>
         <sys_name>H4G thanks</sys_name>
         <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
         <sys_update_name>sp_widget_3e3f8681935032108543b2597bba102c</sys_update_name>
         <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-28 19:19:49</sys_updated_on>
+        <sys_updated_on>2025-09-29 10:55:32</sys_updated_on>
         <template><![CDATA[<div class="h4g-thanks">
 
   <!-- Hero / header -->
@@ -334,11 +425,14 @@
       Thanks
       <span ng-if="data.github_user">{{data.github_user}},</span>
       your idea
-      <span ng-if="data.proposal">about "{{data.proposal}}"</span>
+      <span ng-if="data.proposal">about "<strong>{{data.proposal}}</strong>"</span>
       has been submitted!
     </h1>
   </div>
-
+  <div class="h4g-intro">
+    <p>Next up, let’s get your idea into GitHub! </p>
+  </div>
+  
   <!-- Steps -->
   <ol class="h4g-steps">
 
@@ -348,7 +442,7 @@
       <div class="content">
         <h3>Commit to source control</h3>
         <p>
-          Push your changes to <strong>your repository</strong>. They’ll go to your current branch:
+          Push your changes to your repository. They’ll go to your current branch:
           <strong>{{data.branch || 'main'}}</strong>.
         </p>
 
@@ -357,6 +451,9 @@
           <a class="btn" ng-href="{{data.studio_url}}" target="_blank" rel="noopener">
             <i class="fa fa-cog"></i> {{data.studio_label}}
           </a>
+        </p>
+         <p>
+           Then click <strong>Source control</strong> <i class="fa fa-long-arrow-right"></i> <strong>Commit changes</strong>.
         </p>
 
         <!-- Suggested commit message -->
@@ -458,6 +555,12 @@
     </li>
 
   </ol>
+  <!-- Support / Help link -->
+<div class="h4g-support">
+  <p>
+    <a href="https://sndevs.slack.com/messages/C01C0RWV32M" target="_blank" rel="noopener"><i class="fa fa-slack"></i>Need help or stuck? Join our <strong>#hacktoberfest</strong> channel on Slack!</a>
+  </p>
+</div>
 </div>]]></template>
     </sp_widget>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
