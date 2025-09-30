@@ -2,6 +2,8 @@
 
 A ServiceNow app to capture ideas for developing solutions as part of the Hack4Good initiative. This repository enables the ServiceNow community to submit innovative project proposals aimed at creating positive social impact through technology.
 
+> Interested in our other ServiceNow Hacktoberfest projects? See the main repository [here](https://github.com/ServiceNowDevProgram/Hacktoberfest) or see our official blog post [here](https://devlink.sn/hacktoberfest).
+
 ## A Special Partnership: Hack4Good
 
 We are thrilled to announce that we are partnering with our friends at Hack4Good!
