@@ -12,6 +12,8 @@ Typically, ServiceNow Hack4Good is a hackathon where developers, partners, and c
 
 This project is a new **Hack4Good Ideation Portal**. The records you contribute will be ideas and app suggestions that will fuel future Hack4Good initiatives. You'll learn how to contribute records to a ServiceNow repo, and your contributions will directly support future social impact projects.
 
+Want to see what ideas have been submitted? Install this repository into a ServiceNow instance then visit `https://YOUR-INSTANCE.service-now.com/h4g?id=h4g_submitted_ideas` (replace `YOUR-INSTANCE` with your ServiceNow instance subdomain) to view all submitted ideas.
+
 > [!IMPORTANT]
 > 🔔🔔🔔<br>
 > **_CONTRIBUTORS must follow all guidelines in [CONTRIBUTING.md](CONTRIBUTING.md)_** or run the risk of having your Pull Requests labeled non-compliant or as spam.<br>
