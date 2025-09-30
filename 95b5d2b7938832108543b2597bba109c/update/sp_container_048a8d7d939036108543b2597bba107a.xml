@@ -6,24 +6,24 @@
         <bootstrap_alt>false</bootstrap_alt>
         <class_name/>
         <container_class_name/>
-        <name>Proposal created - Container 1</name>
-        <order>1</order>
+        <name>Idea submission - Container 3</name>
+        <order>3</order>
         <semantic_tag/>
-        <sp_page display_value="proposal_created">59fdf8c547107210e52659db416d43be</sp_page>
+        <sp_page display_value="idea_submission">048e9f48931872108543b2597bba10bf</sp_page>
         <subheader>false</subheader>
         <sys_class_name>sp_container</sys_class_name>
         <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-        <sys_created_on>2025-09-28 10:21:27</sys_created_on>
-        <sys_id>91fdf8c547107210e52659db416d43c2</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>Proposal created - Container 1</sys_name>
+        <sys_created_on>2025-09-30 19:11:43</sys_created_on>
+        <sys_id>048a8d7d939036108543b2597bba107a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Idea submission - Container 3</sys_name>
         <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
-        <sys_update_name>sp_container_91fdf8c547107210e52659db416d43c2</sys_update_name>
+        <sys_update_name>sp_container_048a8d7d939036108543b2597bba107a</sys_update_name>
         <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-30 19:43:42</sys_updated_on>
+        <sys_updated_on>2025-09-30 19:11:43</sys_updated_on>
         <title/>
-        <width>container-fluid</width>
+        <width>container</width>
     </sp_container>
 </record_update>

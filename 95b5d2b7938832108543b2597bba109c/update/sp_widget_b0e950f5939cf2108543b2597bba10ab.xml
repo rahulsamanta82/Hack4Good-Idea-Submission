@@ -139,22 +139,29 @@
         <roles/>
         <script><![CDATA[(function () {
   // Config (tweak if you ever rename things)
-  var PRODUCER_NAME = 'Hack4Good Idea Submission';
-  var SUBMITTED_PAGE_ID = 'h4g_submitted_ideas';
-  var HOWTO_URL = 'https://example.com/placeholder-howto'; // TODO: replace
+  const PRODUCER_NAME = 'Hack4Good Idea Submission';
+  const SUBMITTED_PAGE_ID = 'h4g_submitted_ideas';
+	const RP_SYSID = '12da163393c832108543b2597bba107d';
+  const HOWTO_URL = 'https://github.com/ServiceNowDevProgram/Hack4Good-Idea-Submission/blob/main/CONTRIBUTING.md';
 
   // Get current portal path (e.g., "/h4g")
   var portal = $sp.getPortalRecord();
   var suffix = portal ? (portal.getValue('url_suffix') || 'sp') : 'sp';
   var base   = '/' + suffix;
 
-  // Resolve Record Producer by name (sys_id differs per instance)
-  var producerId = '';
+	// Get RP
+	
+  let producerId = RP_SYSID;
   var rp = new GlideRecord('sc_cat_item_producer');
-  rp.addQuery('name', PRODUCER_NAME);
-  rp.setLimit(1);
-  rp.query();
-  if (rp.next()) producerId = rp.getUniqueValue();
+	if(!rp.get(RP_SYSID)) {
+		// if sys_id is not correct, try to get it by name
+	  rp.addQuery('name', PRODUCER_NAME);
+  	rp.setLimit(1);
+  	rp.query();
+  	if (rp.next()) {
+			producerId = rp.getUniqueValue();
+		}
+	}
 
   // Build tiles
   var tiles = [];
@@ -201,14 +208,14 @@
         <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
         <sys_created_on>2025-09-30 15:39:19</sys_created_on>
         <sys_id>b0e950f5939cf2108543b2597bba10ab</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>H4G landing</sys_name>
         <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
         <sys_update_name>sp_widget_b0e950f5939cf2108543b2597bba10ab</sys_update_name>
         <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-30 15:53:12</sys_updated_on>
+        <sys_updated_on>2025-09-30 19:05:07</sys_updated_on>
         <template><![CDATA[<div class="h4g-landing">
   <!-- Hero -->
   <header class="hero">
