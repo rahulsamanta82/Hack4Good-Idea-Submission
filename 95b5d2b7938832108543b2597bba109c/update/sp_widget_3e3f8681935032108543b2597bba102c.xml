@@ -302,7 +302,8 @@
         <roles/>
         <script><![CDATA[(function () {
   // --- constants ---
-  var CONTRIBUTING_URL = 'https://example.com/your/CONTRIBUTING.md'; // fill me
+  var EXPECTED_SCOPE   = 'x_snc_hack4good_0';                      // target app scope
+  var CONTRIBUTING_URL = 'https://github.com/ServiceNowDevProgram/Hack4Good-Idea-Submission/blob/main/CONTRIBUTING.md'; // fill me
 
   // --- helpers ---
   function normalizeRepo(url) {
@@ -326,6 +327,17 @@
     return sp.hasNext();
   }
 
+  // --- resolve the app record *by scope* ---
+  function getAppByScope(scopeName) {
+    var app = new GlideRecord('sys_app');
+    app.addQuery('scope', scopeName);
+    // prefer the most recently updated if multiples exist (forks/copies)
+    app.orderByDesc('sys_updated_on');
+    app.setLimit(1);
+    app.query();
+    return app.next() ? app : null;
+  }
+
   // === Part 1: Proposal label (display field project_name) ===
   data.proposal = '';
   var ideaId = $sp.getParameter('idea'); // ?idea=<sys_id>
@@ -334,16 +346,20 @@
     if (pr.get(ideaId)) data.proposal = pr.getDisplayValue(); // project_name
   }
 
-  // === Part 2: Repo info from sys_repo_config (current app) ===
+  // === Part 2: Repo info from sys_repo_config (by app resolved from scope) ===
   data.repo = '';
   data.branch = '';
   data.github_user = '';
   data.contributing_url = CONTRIBUTING_URL;
   data.fork_branch_url = '';
   data.pr_url = '';
+  data.app_found = false;
 
-  var appId = gs.getCurrentApplicationId(); // current scoped app sys_id
+  var appGR = getAppByScope(EXPECTED_SCOPE);
+  var appId = appGR ? appGR.getUniqueValue() : ''; // <-- use this app sys_id everywhere
   if (appId) {
+    data.app_found = true;
+
     var rc = new GlideRecord('sys_repo_config');
     rc.addQuery('sys_app', appId);
     rc.orderByDesc('sys_updated_on');
@@ -356,11 +372,12 @@
       // credential -> GitHub username (best-effort)
       var ghUser = '';
       try {
-        var cred = rc.getElement('credential') && rc.getElement('credential').getRefRecord();
+        var credEl = rc.getElement('credential');
+        var cred   = credEl && credEl.getRefRecord();
         if (cred && cred.isValidRecord()) {
-          if (cred.isValidField('user_name')) ghUser = cred.getValue('user_name');
-          else if (cred.isValidField('username')) ghUser = cred.getValue('username');
-          else ghUser = cred.getDisplayValue('user_name') || cred.getDisplayValue();
+          if (cred.isValidField('user_name'))      ghUser = cred.getValue('user_name');
+          else if (cred.isValidField('username'))  ghUser = cred.getValue('username');
+          else                                     ghUser = cred.getDisplayValue('user_name') || cred.getDisplayValue();
         }
       } catch (e) {}
 
@@ -370,22 +387,22 @@
 
       if (repoUrl) {
         data.fork_branch_url = repoUrl + '/tree/' + branch;
-        data.pr_url = repoUrl + '/compare/' + branch + '?expand=1';
+        data.pr_url          = repoUrl + '/compare/' + branch + '?expand=1';
       }
     }
   }
 
-  // === Part 3: Build Studio deep-link (new Studio on Zurich, else classic Studio) ===
+  // === Part 3: Build Studio deep-link (new Studio on Zurich, else classic) ===
   data.studio_url = '';
   data.studio_label = 'Open in ServiceNow Studio';
   if (appId) {
-    var buildName = (gs.getProperty('glide.buildname') || '').toLowerCase(); // e.g., 'zurich'
-    var isZurich  = buildName.indexOf('zurich') === 0;
-    var hasNewStudio = pluginActive('sn_sns'); // new ServiceNow Studio plugin
+    var buildName   = (gs.getProperty('glide.buildname') || '').toLowerCase(); // e.g., 'zurich'
+    var isZurich    = buildName.indexOf('zurich') === 0;
+    var hasNewStudio= pluginActive('sn_sns'); // new ServiceNow Studio plugin
 
     if (isZurich && hasNewStudio) {
       // New Studio (supported from Zurich)
-      data.studio_url = '/now/servicenow-studio/builder?table=sys_app&sysId=' + appId;
+      data.studio_url   = '/now/servicenow-studio/builder?table=sys_app&sysId=' + appId;
       data.studio_label = 'Open in ServiceNow Studio';
     } else {
       // Classic Studio fallback
@@ -398,24 +415,29 @@
 
   // Optional: suggested commit message
   (function buildCommitMessage(){
-    var who = data.github_user ? ('@' + data.github_user) : 'contributor';
+    var who  = data.github_user ? ('@' + data.github_user) : 'contributor';
     var what = data.proposal || 'proposal';
     data.commit_message = 'feat(idea): ' + what + ' — initial commit by ' + who;
   })();
+
+  // (Optional) expose scope + app for debugging/UX if needed
+  data.expected_scope = EXPECTED_SCOPE;
+  data.app_sys_id = appId || '';
+  data.app_name = appGR ? appGR.getDisplayValue() : '';
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
         <sys_created_on>2025-09-28 16:16:34</sys_created_on>
         <sys_id>3e3f8681935032108543b2597bba102c</sys_id>
-        <sys_mod_count>61</sys_mod_count>
+        <sys_mod_count>65</sys_mod_count>
         <sys_name>H4G thanks</sys_name>
         <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
         <sys_update_name>sp_widget_3e3f8681935032108543b2597bba102c</sys_update_name>
         <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-        <sys_updated_on>2025-09-29 10:55:32</sys_updated_on>
+        <sys_updated_on>2025-09-30 15:06:24</sys_updated_on>
         <template><![CDATA[<div class="h4g-thanks">
 
   <!-- Hero / header -->

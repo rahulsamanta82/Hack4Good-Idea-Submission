@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* ===== Scope Error Banner ===== */
+.scope-error {
+  background: #5c1b1b;            
+  border: 1px solid #a94442;
+  color: #f9dcdc;
+  padding: 18px 20px;             /* more breathing room */
+  margin: 16px auto;
+  border-radius: 12px;
+  line-height: 1.5;
+  font-weight: 600;
+  max-width: 1120px;
+  box-sizing: border-box;
+  font-size: 16px;                /* slightly larger base font */
+}
+
+.scope-error-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;                      /* more space between icon and text */
+  text-align: center;
+}
+
+.scope-error .fa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* bigger square box */
+  width: 2.5em;
+  height: 2.5em;
+  font-size: 2.2em;   /* icon fills most of the box */
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.scope-error .msg {
+  display: block;
+  float: none;
+}
+
+.scope-error .msg strong {
+  color: #fff;
+  font-weight: 800;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>h4g_scopewarning</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>H4G ScopeWarning</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+  var EXPECTED_SCOPE = 'x_snc_hack4good_0'; // your app scope
+
+  function isCorrectScope(appSysId) {
+    if (!appSysId) return false;
+    var gr = new GlideRecord('sys_app');
+    if (gr.get(appSysId)) {
+      return gr.getValue('scope') === EXPECTED_SCOPE;
+    }
+    return false;
+  }
+
+  var appId = gs.getCurrentApplicationId();
+  data.correctScope = isCorrectScope(appId);
+
+  if (!data.correctScope) {
+    var app = new GlideRecord('sys_app');
+    app.addQuery('scope', EXPECTED_SCOPE);
+    app.setLimit(1);
+    app.query();
+    if (app.next()) {
+      data.expectedAppName = app.getDisplayValue(); // e.g. "Hack4Good Idea Submission"
+    } else {
+      data.expectedAppName = "Hack4Good Idea Submission";
+    }
+  }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-30 12:05:18</sys_created_on>
+        <sys_id>7de8eb219358f2108543b2597bba107d</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>H4G ScopeWarning</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sp_widget_7de8eb219358f2108543b2597bba107d</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-30 15:02:54</sys_updated_on>
+        <template><![CDATA[<div ng-if="!data.correctScope" class="scope-error">
+  <div class="scope-error-inner">
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    <div class="msg">
+      You are not in the correct application scope.
+      <br>
+      Please switch to <strong>{{data.expectedAppName}}</strong> before continuing.
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>7de8eb219358f2108543b2597bba107d</id>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-30 12:05:18</sys_created_on>
+        <sys_id>31e8eb219358f2108543b2597bba1081</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-30 12:05:18</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
