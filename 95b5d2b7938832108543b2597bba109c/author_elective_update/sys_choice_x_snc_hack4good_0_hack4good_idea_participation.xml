@@ -15,43 +15,5 @@
             <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
             <sys_updated_on>2025-09-24 19:53:25</sys_updated_on>
         </sys_choice_set>
-        <sys_choice action="INSERT_OR_UPDATE">
-            <dependent_value/>
-            <element>participation</element>
-            <hint/>
-            <inactive>false</inactive>
-            <label>Yes</label>
-            <language>en</language>
-            <name>x_snc_hack4good_0_hack4good_idea</name>
-            <sequence>10</sequence>
-            <synonyms/>
-            <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-24 19:53:25</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
-            <sys_mod_count>2</sys_mod_count>
-            <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-24 19:53:34</sys_updated_on>
-            <value>yes</value>
-        </sys_choice>
-        <sys_choice action="INSERT_OR_UPDATE">
-            <dependent_value/>
-            <element>participation</element>
-            <hint/>
-            <inactive>false</inactive>
-            <label>No</label>
-            <language>en</language>
-            <name>x_snc_hack4good_0_hack4good_idea</name>
-            <sequence>20</sequence>
-            <synonyms/>
-            <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
-            <sys_created_on>2025-09-24 19:53:37</sys_created_on>
-            <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
-            <sys_mod_count>2</sys_mod_count>
-            <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
-            <sys_updated_on>2025-09-24 19:53:40</sys_updated_on>
-            <value>no</value>
-        </sys_choice>
     </sys_choice>
 </record_update>

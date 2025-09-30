@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_dictionary action="DELETE" element="contact_email" table="x_snc_hack4good_0_hack4good_idea">
+        <active>true</active>
+        <array>false</array>
+        <attributes/>
+        <audit>false</audit>
+        <calculation/>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label>Contact email</column_label>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>contact_email</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <internal_type display_value="String">string</internal_type>
+        <mandatory>false</mandatory>
+        <max_length>120</max_length>
+        <name>x_snc_hack4good_0_hack4good_idea</name>
+        <next_element/>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_dictionary</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 14:31:47</sys_created_on>
+        <sys_id>8b7a1204939072108543b2597bba1098</sys_id>
+        <sys_name>Contact email</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sys_dictionary_x_snc_hack4good_0_hack4good_idea_contact_email</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-25 14:33:54</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_dictionary>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</application>
+        <file_path/>
+        <instance_id>0fd162efdb3a919891232f17d49619c9</instance_id>
+        <instance_name>devprogramresourcesdev</instance_name>
+        <name>sys_dictionary_x_snc_hack4good_0_hack4good_idea_contact_email</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="contact_email" table="x_snc_hack4good_0_hack4good_idea"><active>true</active><array>false</array><attributes/><audit>false</audit><calculation/><choice/><choice_field/><choice_table/><column_label>Contact email</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>contact_email</element><element_reference>false</element_reference><foreign_database/><formula/><function_definition/><function_field>false</function_field><internal_type display_value="String">string</internal_type><mandatory>false</mandatory><max_length>120</max_length><name>x_snc_hack4good_0_hack4good_idea</name><next_element/><primary>false</primary><read_only>false</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>laszlo.balla@servicenow.com</sys_created_by><sys_created_on>2025-09-25 14:31:47</sys_created_on><sys_id>8b7a1204939072108543b2597bba1098</sys_id><sys_name>Contact email</sys_name><sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package><sys_policy/><sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope><sys_update_name>sys_dictionary_x_snc_hack4good_0_hack4good_idea_contact_email</sys_update_name><sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by><sys_updated_on>2025-09-25 14:33:54</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><virtual_type>script</virtual_type><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+        <payload_hash>219591623</payload_hash>
+        <record_name>Hack4Good Idea.Contact email</record_name>
+        <reverted_from/>
+        <source>5ea616b7938832108543b2597bba1040</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-25 14:33:54</sys_created_on>
+        <sys_id>cefa9e04939072108543b2597bba10b9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>199814b875b0000001</sys_recorded_at>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-25 14:33:54</sys_updated_on>
+        <type>Dictionary</type>
+        <update_guid>82fa9e04c1907210a5f9226ce47abfb9</update_guid>
+        <update_guid_history>82fa9e04c1907210a5f9226ce47abfb9:219591623,9f7a5204d29072109eb20c4787d37517:-2030347382,4f7a1204e4907210594d64b64f73d8f5:495561261</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 18:14:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_dictionary">sys_dictionary</sys_db_object>
+        <sys_id>511407bcdf9e4eac9c32747657d33210</sys_id>
+        <sys_metadata>8b7a1204939072108543b2597bba1098</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Contact email</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_parent display_value="">e0761af7938832108543b2597bba10e6</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_scope_delete display_value="">334a287b8ea544f8b449128c5698f440</sys_scope_delete>
+        <sys_update_name>sys_dictionary_x_snc_hack4good_0_hack4good_idea_contact_email</sys_update_name>
+        <sys_update_version display_value="sys_dictionary_x_snc_hack4good_0_hack4good_idea_contact_email">cefa9e04939072108543b2597bba10b9</sys_update_version>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 18:14:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

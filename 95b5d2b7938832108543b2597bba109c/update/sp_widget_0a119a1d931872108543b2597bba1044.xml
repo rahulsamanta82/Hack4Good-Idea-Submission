@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, $uibModal, $timeout, $window, $sce) {
+  var c = this; // controllerAs
+
+  /* ===== Initial state from server ===== */
+  c.items   = ($scope.data.items || []).slice();
+  c.hasMore = !!$scope.data.has_more;
+  c.loading = false;
+  c.error   = '';
+
+  /* ===== Helpers ===== */
+
+  // Equalize card heights across ALL rows
+  function equalizeHeights() {
+    $timeout(function () {
+      var cards = document.querySelectorAll('.h4g-proposals .card');
+      if (!cards.length) return;
+      Array.prototype.forEach.call(cards, function (el) { el.style.height = 'auto'; });
+      var max = 0;
+      Array.prototype.forEach.call(cards, function (el) { max = Math.max(max, el.offsetHeight); });
+      Array.prototype.forEach.call(cards, function (el) { el.style.height = max + 'px'; });
+    }, 0);
+  }
+
+  // If the title wraps (≈2 lines), stack the badge under it; else keep badge on the right
+  function adjustBadgeLayout() {
+    $timeout(function () {
+      var heads = document.querySelectorAll('.h4g-proposals .card .card-head');
+      if (!heads.length) return;
+      Array.prototype.forEach.call(heads, function (head) {
+        var title = head.querySelector('.title');
+        if (!title) return;
+        var lh = parseFloat(getComputedStyle(title).lineHeight) || 20;
+        var lines = Math.round(title.offsetHeight / lh);
+        if (lines > 1) head.classList.add('stack'); else head.classList.remove('stack');
+      });
+    }, 0);
+  }
+
+  // cursor built from last loaded item
+  function cursor() {
+    if (!c.items.length) return { last_created_on: '', last_sys_id: '' };
+    var last = c.items[c.items.length - 1];
+    return { last_created_on: last._created_on_raw, last_sys_id: last.sys_id };
+  }
+
+  /* ===== Load more (infinite scroll) ===== */
+  c.loadMore = function () {
+    if (c.loading || !c.hasMore) return;
+    c.loading = true; c.error = '';
+    var params = Object.assign({ action: 'fetch' }, cursor());
+
+    $scope.server.get(params).then(function (resp) {
+      var d = resp.data || {};
+      var next = d.items || [];
+      Array.prototype.push.apply(c.items, next);
+      c.hasMore = !!d.has_more;
+    }).catch(function () {
+      c.error = 'Could not load more proposals.';
+    }).finally(function () {
+      c.loading = false;
+      equalizeHeights();
+      adjustBadgeLayout();
+    });
+  };
+
+  // Hook equalize + badge layout after items change and on resize
+  $scope.$watch(function(){ return c.items.length; }, function(){
+    equalizeHeights();
+    adjustBadgeLayout();
+  });
+  var onResize = function () {
+    equalizeHeights();
+    adjustBadgeLayout();
+  };
+  angular.element($window).on('resize', onResize);
+  $scope.$on('$destroy', function(){ angular.element($window).off('resize', onResize); });
+
+  // Attach scroll listener to the scroll container
+  function onScroll(e) {
+    var el = e.target;
+    if (c.loading || !c.hasMore) return;
+    var threshold = 200; // px from bottom
+    if (el.scrollTop + el.clientHeight >= el.scrollHeight - threshold) {
+      $scope.$applyAsync(c.loadMore);
+    }
+  }
+  $timeout(function () {
+    var scroller = document.querySelector('.h4g-proposals .grid-scroll');
+    if (scroller) scroller.addEventListener('scroll', onScroll);
+    $scope.$on('$destroy', function () {
+      if (scroller) scroller.removeEventListener('scroll', onScroll);
+    });
+  }, 0);
+
+  /* ===== Modal: dark themed, title + badge in header ===== */
+  c.open = function (rec) {
+    if (!rec || !rec.sys_id) return;
+
+    $uibModal.open({
+      animation: true,
+      windowClass: 'h4g-modal',
+      size: 'lg',
+      backdrop: 'static',
+      template:
+        '<style>' +
+        /* Modal chrome */
+        '  .h4g-modal.modal .modal-content{background:#032D42!important;color:#e7ecf7!important;border:1px solid #0a4661!important;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.6)}' +
+        '  .h4g-modal.modal .modal-header{background:#06354e!important;border-bottom:1px solid #0a4661!important;color:#e7ecf7!important;position:relative}' +
+        '  .h4g-modal.modal .modal-body{background:#032D42!important;color:#e7ecf7!important;padding:16px 16px 20px!important}' +
+        '  .h4g-modal .modal-header .close{position:absolute;top:8px;right:10px;color:#e7ecf7!important;opacity:1!important;text-shadow:none}' +
+        /* Header title row (h1 + badge on one line; reserve room for ×) */
+        '  .h4g-modal-head .title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;width:100%;padding-right:40px}' +
+        '  .h4g-modal-head .modal-title,h1.modal-title{flex:1 1 auto;font-size:24px!important;line-height:1.3;margin:0;word-wrap:break-word}' +
+        '  .h4g-modal-head .badge{flex:0 0 auto;margin-top:2px;display:inline-block;padding:4px 8px;border:1px solid #0a4661;background:#032D42;color:#e7ecf7;border-radius:999px;font-size:12px;white-space:nowrap}' +
+        /* Field boxes (including date) */
+        '  .h4g-detail .field{margin:0 0 14px;background:#06354e;border:1px solid #0a4661;border-radius:10px;padding:12px}' +
+        '  .h4g-detail h2{font-size:18px!important;font-weight:700;margin:0 0 8px;color:#e7ecf7}' +
+        '  .h4g-detail .text{margin:0;color:#e7ecf7;white-space:pre-wrap;overflow-wrap:anywhere}' +
+        '  .h4g-detail .when{font-size:14px;color:#e7ecf7}' +
+        /* HTML blocks inside fields */
+        '  .h4g-detail .html{background:#06354e;border:1px solid #0a4661;border-radius:10px;padding:12px;color:#e7ecf7}' +
+        '  .h4g-detail .html p{margin:0 0 10px}' +
+        '  .h4g-detail .html a{color:#63DF4E;text-decoration:underline}' +
+        '  .h4g-detail .html ul,.h4g-detail .html ol{margin-left:18px}' +
+        '  .h4g-detail .html h1,.h4g-detail .html h2,.h4g-detail .html h3{color:#e7ecf7;margin-top:12px}' +
+        '</style>' +
+        '<div class="modal-header h4g-modal-head">' +
+          '<div class="title-row">' +
+            '<h1 class="modal-title">{{vm.item.project_name || "Proposal"}}</h1>' +
+            '<span class="badge" ng-if="vm.item.focus_area">{{vm.item.focus_area}}</span>' +
+          '</div>' +
+          '<button type="button" class="close" ng-click="vm.close()" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+        '</div>' +
+        '<div class="modal-body h4g-detail">' +
+          '<div class="field" ng-if="vm.item.problem_statement"><h2>Problem statement</h2><p class="text">{{vm.item.problem_statement}}</p></div>' +
+          '<div class="field" ng-if="vm.solutionHtml"><h2>Solution proposal</h2><div class="html" ng-bind-html="vm.solutionHtml"></div></div>' +
+          '<div class="field" ng-if="vm.impactHtml"><h2>Potential impact</h2><div class="html" ng-bind-html="vm.impactHtml"></div></div>' +
+          '<div class="field" ng-if="vm.item.created_on"><h2>Submitted on</h2><div class="when">{{vm.item.created_on}}</div></div>' +
+        '</div>',
+      controllerAs: 'vm',
+      controller: function ($uibModalInstance) {
+        var vm = this;
+        vm.item = angular.copy(rec);
+        vm.solutionHtml = vm.item.solution_proposal ? $sce.trustAsHtml(vm.item.solution_proposal) : null;
+        vm.impactHtml   = vm.item.potential_impact ? $sce.trustAsHtml(vm.item.potential_impact)   : null;
+        vm.close = function(){ $uibModalInstance.dismiss('close'); };
+      }
+    });
+  };
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>/* ===== H4G Proposals (cards) ===== */
+.h4g-proposals {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 0;
+  color: #e7ecf7;
+}
+
+/* Header */
+.h4g-proposals .header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.h4g-proposals .header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: #0a4661;   /* same as card title/text */
+}
+.h4g-proposals .header .sub {
+  font-size: 16px;
+  color: #0a4661;   /* same muted tone as card meta/desc */
+  margin: 0;
+}
+
+/* Empty state */
+.h4g-proposals .empty {
+  border: 1px solid #0a4661; border-radius: 12px; background: #06354e;
+  padding: 18px; text-align: center; color: #b9c7e4;
+}
+
+/* Grid: centered rows with fixed-width cards */
+.h4g-proposals .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* &lt;-- centers the last row */
+  gap: 16px;
+}
+
+/* Card: fixed width and flex column so meta can pin to bottom */
+.h4g-proposals .card {
+  width: 340px;                /* prevents last-row stretch */
+  display: flex;
+  flex-direction: column;
+  background: #06354e;
+  border: 1px solid #0a4661;
+  border-radius: 14px;
+  padding: 14px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .08s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,.22);
+  cursor: pointer;
+  outline: none;
+}
+.h4g-proposals .card:hover,
+.h4g-proposals .card:focus {
+  transform: translateY(-2px);
+  border-color: #0f5c7f;
+  background: #08405a;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+}
+
+/* Keep the date row at the bottom */
+.h4g-proposals .meta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #9fb0ce;
+}
+
+/* Optional: clamp text so cards are naturally closer in height */
+.h4g-proposals .title {
+  font-size: 18px;
+  margin: 0 0 6px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;           /* keep titles to ~2 lines */
+  -webkit-box-orient: vertical;
+}
+.h4g-proposals .desc {
+  margin: 6px 0 10px;
+  color: #b9c7e4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;           /* ~4 lines */
+  -webkit-box-orient: vertical;
+  overflow-wrap: anywhere;
+}
+
+/* Card head */
+/* Default: title left, badge right */
+.h4g-proposals .card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Title: allow up to 2 lines + ellipsis; reserve space for badge */
+.h4g-proposals .title {
+  font-size: 18px;
+  margin: 0 0 6px;
+  line-height: 1.25;
+  max-width: calc(100% - 80px);              /* leave room for badge */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;                      /* 2-line clamp */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badge pill */
+.h4g-proposals .badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid #0a4661;
+  background: #032D42;
+  color: #e7ecf7;
+  border-radius: 999px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* When title is long (wraps), stack the badge under the title */
+.h4g-proposals .card-head.stack { display: block; }
+.h4g-proposals .card-head.stack .title { max-width: 100%; }  /* let title use full width */
+.h4g-proposals .card-head.stack .badge { margin-top: 4px; }  /* small gap under title */
+
+/* Description (multi-line clamp) */
+.h4g-proposals .desc {
+  margin: 6px 0 10px; color: #b9c7e4; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow-wrap: anywhere;
+}
+
+/* Meta row */
+.h4g-proposals .meta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: #9fb0ce; }
+.h4g-proposals .meta .dot { width: 6px; height: 6px; background: #9fb0ce; border-radius: 50%; }
+
+/* Force dark modal background and text */
+.h4g-modal .modal-content {
+  background: #032D42 !important;
+  color: #e7ecf7 !important;
+  border: 1px solid #0a4661 !important;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.6);
+}
+
+/* Header */
+.h4g-modal .modal-header {
+  background: #06354e !important;
+  border-bottom: 1px solid #0a4661 !important;
+  color: #e7ecf7 !important;
+}
+
+/* Body */
+.h4g-modal .modal-body {
+  background: #032D42 !important;
+  color: #e7ecf7 !important;
+  padding: 16px 16px 20px;
+}
+
+/* Footer (if you ever add one) */
+.h4g-modal .modal-footer {
+  background: #032D42 !important;
+  border-top: 1px solid #0a4661 !important;
+}
+
+/* Titles */
+.h4g-modal .modal-title { font-size: 22px; margin: 0; } /* &lt;h1&gt; */
+.h4g-detail h2 { font-size: 16px; margin: 0 0 8px; font-weight: 700; color: #e7ecf7; }
+
+/* Dividers between sections */
+.h4g-detail .divider {
+  height: 1px;
+  background: #0a4661;
+  margin: 14px 0;
+  border-radius: 1px;
+}
+
+/* Field spacing + text colors */
+.h4g-detail .field   { margin: 0; }
+.h4g-detail .text    { margin: 0; color: #e7ecf7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.h4g-detail .muted   { color: #9fb0ce; }
+.h4g-detail .when    { font-size: 14px; color: #b9c7e4; }
+
+/* Badge: identical to card badge */
+.h4g-detail .badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid #0a4661;
+  background: #032D42;
+  color: #e7ecf7;
+  border-radius: 999px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Rendered HTML blocks from fields */
+.h4g-detail .html {
+  background: #06354e;
+  border: 1px solid #0a4661;
+  border-radius: 10px;
+  padding: 12px;
+  color: #e7ecf7;
+}
+.h4g-detail .html p { margin: 0 0 10px; }
+.h4g-detail .html a { color: #63DF4E; text-decoration: underline; }
+.h4g-detail .html ul, .h4g-detail .html ol { margin-left: 18px; }
+.h4g-detail .html h1, .h4g-detail .html h2, .h4g-detail .html h3 { color: #e7ecf7; margin-top: 12px; }
+
+.h4g-proposals .grid-scroll {
+  max-height: 72vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.h4g-proposals .list-footer {
+  text-align: center;
+  color: #b9c7e4;
+  padding: 12px 0 6px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>h4g_proposals</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>H4G Proposals</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+  var TBL  = 'x_snc_hack4good_0_hack4good_proposal';
+  var PAGE = parseInt(options.page_size || 24, 10);
+
+  function toItem(gr) {
+    return {
+      sys_id: gr.getUniqueValue(),
+      project_name: gr.getDisplayValue('project_name') || '',
+      focus_area: gr.getDisplayValue('focus_area') || '',
+      problem_statement: gr.getValue('problem_statement') || '',
+      potential_impact: gr.getValue('potential_impact') || '',
+      solution_proposal: gr.getValue('solution_proposal') || '',
+      created_on: gr.getDisplayValue('sys_created_on') || '',
+      _created_on_raw: gr.getValue('sys_created_on') || ''
+    };
+  }
+
+  function fetchPage(lastCreated, lastSysId, limitPlusOne) {
+    var gr = new GlideRecord(TBL);
+    if (!gr.isValid()) return { items: [], has_more: false };
+
+    gr.orderByDesc('sys_created_on');
+    gr.orderByDesc('sys_id');
+
+    if (lastCreated && lastSysId) {
+      // (created_on < cursor) OR (created_on = cursor AND sys_id < cursor_id)
+      var q1 = gr.addQuery('sys_created_on', '<', lastCreated);
+      var q2 = gr.addQuery('sys_created_on', lastCreated);
+      q2.addCondition('sys_id', '<', lastSysId);
+      q1.addOrCondition(q2);
+    }
+
+    gr.setLimit(limitPlusOne);
+    gr.query();
+
+    var out = [];
+    while (gr.next()) out.push(toItem(gr));
+    var hasMore = out.length > PAGE;
+    if (hasMore) out.pop();
+
+    return { items: out, has_more: hasMore };
+  }
+
+  var PAGE_PLUS = PAGE + 1;
+  if (input && input.action === 'fetch') {
+    var r = fetchPage(input.last_created_on || '', input.last_sys_id || '', PAGE_PLUS);
+    data.items    = r.items;
+    data.has_more = r.has_more;
+  } else {
+    var first = fetchPage('', '', PAGE_PLUS);
+    data.items    = first.items;
+    data.has_more = first.has_more;
+  }
+  data.page_size = PAGE;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-29 11:03:11</sys_created_on>
+        <sys_id>0a119a1d931872108543b2597bba1044</sys_id>
+        <sys_mod_count>37</sys_mod_count>
+        <sys_name>H4G Proposals</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sp_widget_0a119a1d931872108543b2597bba1044</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-29 20:08:49</sys_updated_on>
+        <template><![CDATA[<div class="h4g-proposals">
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Check out the latest proposals from the community</h2>
+    <p class="sub">Newest ideas appear first — click a card to see full details.</p>
+  </div>
+
+  <!-- Empty state -->
+  <div class="empty" ng-if="!c.items.length">
+    <p>No proposals yet — be the first to submit!</p>
+  </div>
+
+  <!-- Scrollable grid -->
+  <div class="grid-scroll" ng-if="c.items.length">
+    <div class="grid">
+
+      <!-- Card -->
+      <div class="card"
+           ng-repeat="p in c.items track by p.sys_id"
+           ng-click="c.open(p)"
+           role="button"
+           tabindex="0"
+           ng-keypress="($event.keyCode===13 || $event.keyCode===32) && c.open(p)">
+
+        <!-- Card head: title (2-line clamp) + badge on the right -->
+        <div class="card-head">
+          <h3 class="title" title="{{p.project_name}}">{{p.project_name}}</h3>
+          <span class="badge" ng-if="p.focus_area">{{p.focus_area}}</span>
+        </div>
+
+        <!-- Description -->
+        <p class="desc" ng-if="p.problem_statement">
+          {{p.problem_statement}}
+        </p>
+
+        <!-- Meta (bottom-pinned) -->
+        <div class="meta" ng-if="p.created_on">
+          <span class="dot"></span>
+          <span class="when">
+            <sn-time-ago timestamp="::p.created_on"></sn-time-ago>
+          </span>
+        </div>
+
+      </div>
+      <!-- /card -->
+
+    </div>
+
+    <!-- Footer: loading / error / end + manual load more -->
+    <div class="list-footer">
+      <span ng-if="c.loading">Loading…</span>
+      <span ng-if="!c.loading && c.error">{{c.error}}</span>
+      <span ng-if="!c.loading && !c.hasMore && !c.error">No more ideas to show.</span>
+      <button class="btn btn-ghost"
+              ng-if="!c.loading && c.hasMore"
+              ng-click="c.loadMore()">
+        Load more
+      </button>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>0a119a1d931872108543b2597bba1044</id>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-29 11:03:11</sys_created_on>
+        <sys_id>06119a1d931872108543b2597bba1047</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-29 11:03:11</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

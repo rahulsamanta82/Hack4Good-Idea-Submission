@@ -1,0 +1,1544 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=148067000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from>a0b0834c935472108543b2597bba104d</copied_from>
+        <copied_from_name>Populate solution proposal</copied_from_name>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>h4g_populate_solution_proposal</internal_name>
+        <label_cache>[{"name":"Created_1.current","label":"Trigger - Record Created➛Hack4Good Proposal Record","reference":"x_snc_hack4good_0_hack4good_proposal","reference_display":"Hack4Good Proposal","type":"reference","base_type":"reference","usedInstances":{"da1e8d3c-b9e1-4b43-b44b-8cedc617f293":["requested_item"],"18e46726-613e-40cf-aab9-78e586108df5":["record"],"bdd0073d-822d-4d04-af32-cbaf7284ffb4":["record"],"f85cfa0e-4eb7-4254-8ea4-32ad8070d683":["requested_item"]},"attributes":{}},{"name":"f1b096e9-7fe5-4052-8a5d-c6304c82b8c6.variables","label":"1 - Get variables➛Variables","reference_display":"Variables","type":"array.object","base_type":"array.object","usedInstances":{},"attributes":{"sourceId":"2ece1b7e-8dee-4851-9409-5fbe6698c629","child_name":"variable","uiUniqueId":"e733098e-b507-460d-81b1-4e5ac980b90c","uiTypeLabel":"Array.Object","co_type_name":"FD73be297c139c36107daa3f2a4eee769b","child_label":"Variable","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","sourceType":"step","sourceUiUniqueId":"045da822-7333-4005-8cb1-9612454cdae2","uiType":"array.object","child_type":"object","child_uiUniqueId":"7c186012-2199-46ba-a722-760c9201243b"}},{"name":"flow_variable.challenges","label":"Flow Variables➛Challenges","type":"string","base_type":"string","usedInstances":{"18e46726-613e-40cf-aab9-78e586108df5":[null]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"604e115a-8240-4e55-8f29-06f5b2c1215d"}},{"name":"Created_1.table_name","label":"Trigger - Record Created➛Hack4Good Proposal Table","reference":"x_snc_hack4good_0_hack4good_proposal","reference_display":"Hack4Good Proposal","type":"table_name","base_type":"table_name","choices":[{"order":0.0}],"usedInstances":{"f1b096e9-7fe5-4052-8a5d-c6304c82b8c6":["table_name"]},"attributes":{"test_input_hidden":"true"}},{"name":"flow_variable.sn_products","label":"Flow Variables➛SN Products","reference":"","reference_display":"","type":"string","base_type":"string","usedInstances":{"18e46726-613e-40cf-aab9-78e586108df5":[null]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"37a20e55-2bd1-47c0-bb8d-204b05b4f338"}},{"name":"Created_1.current.sys_id","label":"Trigger - Record Created➛Hack4Good Proposal Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_snc_hack4good_0_hack4good_proposal","column_name":"sys_id","choices":[{"order":0.0}],"usedInstances":{"f1b096e9-7fe5-4052-8a5d-c6304c82b8c6":["record_sys_id"]}},{"name":"flow_variable.technical_dependencies","label":"Flow Variables➛Technical Dependencies","type":"string","base_type":"string","usedInstances":{"18e46726-613e-40cf-aab9-78e586108df5":[null]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"b1c6552b-9dee-4e49-972a-c4bd3be77695"}}]</label_cache>
+        <master_snapshot>654240649350f2108543b2597bba10ef</master_snapshot>
+        <master_snapshot_digest/>
+        <name>H4G: Populate solution proposal</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>d696fc0547107210e52659db416d4332</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>6cc140249350f2108543b2597bba10ac</sys_id>
+        <sys_mod_count>162</sys_mod_count>
+        <sys_name>H4G: Populate solution proposal</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sys_hub_flow_6cc140249350f2108543b2597bba10ac</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:22</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record display_value="Created 2025-09-28 02:49:19">6696fc0547107210e52659db416d436c</version_record>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=6cc140249350f2108543b2597bba10ac"/>
+    <sys_variable_value action="delete_multiple" query="document_key=6cc140249350f2108543b2597bba10ac"/>
+    <sys_flow_record_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_snc_hack4good_0_hack4good_proposal">^EQ<item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>false</on_update>
+        <published_version/>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 09:49:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>d696fc0547107210e52659db416d4332</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:18</sys_updated_on>
+        <table>x_snc_hack4good_0_hack4good_proposal</table>
+        <trigger_definition/>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>6cc140249350f2108543b2597bba10ac</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 09:49:18</sys_created_on>
+        <sys_id>9e96fc0547107210e52659db416d4332</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:18</sys_updated_on>
+        <trigger display_value="">d696fc0547107210e52659db416d4332</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=6cc140249350f2108543b2597bba10ac^sys_idNOT IN9e96fc0547107210e52659db416d4332"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=6cc140249350f2108543b2597bba10ac"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=6cc140249350f2108543b2597bba10ac^sys_idNOT INbcc140249350f2108543b2597bba10ad"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>6cc140249350f2108543b2597bba10ac</id>
+        <name>H4G: Populate solution proposal</name>
+        <sys_class_name>sys_flow_cat_variable_model</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>bcc140249350f2108543b2597bba10ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:29</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=bcc140249350f2108543b2597bba10ad"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=6cc140249350f2108543b2597bba10ac^sys_idNOT IN74c140249350f2108543b2597bba10ea,74c140249350f2108543b2597bba10ee"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</model>
+        <model_id>6cc140249350f2108543b2597bba10ac</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_6cc140249350f2108543b2597bba10ac</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>74c140249350f2108543b2597bba10ea</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:42</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=74c140249350f2108543b2597bba10ea"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</model>
+        <model_id>6cc140249350f2108543b2597bba10ac</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_6cc140249350f2108543b2597bba10ac</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>74c140249350f2108543b2597bba10ee</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:42</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=74c140249350f2108543b2597bba10ee"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=6cc140249350f2108543b2597bba10ac"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6cc140249350f2108543b2597bba10ac"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=6cc140249350f2108543b2597bba10ac^sys_idNOT IN34c180249350f2108543b2597bba1005"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:30</sys_created_on>
+        <sys_id>34c180249350f2108543b2597bba1005</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:43</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VYXW/bNhT9K4KeVsAD9GHHcd7axF0DdM3quNtDkAmUSNraaNITKSVekf++S33Ysj4cO1Y65yWISIr38Ojccy99991kyCfMvDCnyGfE7JkhVyTiiE1XSwLDSg97HC303AJxjJSIVuaFimLSM2kkFlOyWDKkYDFFTMKgiDCJzAu7ZyaIxeR2Ja8x7ATvp9vke5r5NDw/epIH3hwFf/dnQmDPKv2/jMRSSMRgOQ4lBFr9nr/1Sa/5BdYYv23WBPOQ4Yhw8+LuvmcuUQQRlUbzvTIVakgBDdDIIVbg2q7jWJZz3rf9M9e3HewiYlmwYZWeyhFUA0ub85NHRTgmeE1NjcCIIHzD2Wq9Yg78Z2Qt0KMM/4Xdzy29jhLAHpBsbv3o5aRkw8FchAG5WapQ8Gwkw5lNChYv+JcMv6aTUBQzVdAJI7GE/chSQ9YgckT0di4eJkXAjyFPT5dPMhEA78UTUioK/VgRqQmnIQPqvYwbKeIoRT8ZX95Mrrw/3k8vP40n3mR8O51cX07HV+ZTei7vn1jvmCHMsXjZcZ7WGvgYEqY/IKjjLxKognkZROFSvQ9UmBRyfOptJH4pOA5TbmoyD4opuS3zgoNdOresVqUHpYiF2v8cf62LORs8TL1nZwhhglrU69OSessnb4CmGkgon26XjvORfYTct6z/Scq5W71UyQuBCbvabGfC5GwG2g75MlaarQfElfSU8BDGXolHvRQwPSft7GxPzyo4ijm84K2/R13HKW1r/j6HEuDeQS4W3KRbwjz9nG85ibkh4MPBHyOII6BGGYW70esFmuWM0lvCINVKIqDfZPnp11DKkM9KqNdBUw5qMdfhQExGcaQstjwy+H2XSVwnPamQWUnmgzPZtin1CXWsoc5j23J9altDa4Aodi0rcEqZXAfTilJVJPEqGX1YPstUjGwP6VUpzsFb5WzYS0bJtgYLErREctu47Aaa3RE0R0Or2J97kP+tZZkNX22rc9fROu4AEE4QvIH3tcE9HZAy8QDW+wL386FnnEUi5rhqR3pPI+TGZoXxU87fuw6dkIqI7AawveKUPHBDeyFcxFcduJ9LbX9E+sQC03PB7/zBaOQHyKF0eDYkjl1xvw2MRmxvwvWeUVvSJNc2B2wUTtKktwO87wiANR88GODxDpgLs9H/srm34XQPc8I9gBp5THtZzfBmLMSkmOs222uhk01+H5vx9HwUDOzhMBjCrQUynvaJj+y+M0Cj4Zl7PqhkfA3KLpiqgZkfcpeRK5kCaXGDb9nUaV3RX1O2kiily9HhVZpDH5u+g7IgpUqpP4uRmoqIjC+C/3y9WWfcEiiA6YW2q3K9Dwr9YY3XheELNa/1CxD6A4xvhdZ9ZgsrJ3elqogk2T7r0Vcq0j8fjKjbbDF01GQxGzDtME++vdgzQ5LWXGvqM/YVfNKYN62NwQskXJFJuWPY0dJ0RYrdOSnO65HiHt1GFbnYeo98Cdg3VMLSvuKYOqZjEk/QsnlfCQMmDAhihNTIf0kk2PBXhpoToJRBvwwBDR39WNcuV5E6lLWCfyyQrAOvVTMYNvIG6vQKVUUK3d6ACR6iwcBt6YdH1RtwE6Bn8J582To4K5KmJNtZuw7bt7pnY/UqSXZbEXvWpU5P3Vycjjt1Y3l67tTHF55d9/cGFCdaUu7/A0gn6O9fHwAA</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=6cc140249350f2108543b2597bba10ac^sys_idNOT IN13feedf8935c36108543b2597bba103e,1832cc249350f2108543b2597bba10b0"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Get variables">23be297c939c36108543b2597bba1058</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>23be297c939c36108543b2597bba1058</compiled_snapshot>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-27 19:17:12</sys_created_on>
+        <sys_id>13feedf8935c36108543b2597bba103e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:51:36</sys_updated_on>
+        <ui_id>f1b096e9-7fe5-4052-8a5d-c6304c82b8c6</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Ty27bMBD8lYBnSZAs2TJ9KxwEKNA2QJLmEgTCilzFBKhHKMqJa/jfu5RkO0jdNAF66KHHHc5yZ4ecuy1Tki3YLM1xwlPBYy7iWRTOp0mcT6Y8zXOIwmnOPFZBicQ0KGojs3bTZtTpsTXozuHb7dIgWJRZFIjOGKxsMJB2O6JJ1TYaNrfvY4uV0pJAtri791gDhmZbNGyxfXX0XvEactREverVnx3U/2Ypu2kc3Fqjqoex/jJecb0HqcNJijyGzxYriaSlAN2ix0qoJNjabNjCmo4AWlZeVnpzYKxUZeky5rjPrfpB4+ZhGDpmgbSewOH0UGajgwNcnIMFUtIJ25mRKla1EtgOxkgsoNN2+RIbCJeNVXU1tFjI9b671l1ZfRv8YIcL9g9GSNeSCGzcpk77uEhxvaqfrvYqL1TVmzIe6lqAPlRgybq8s07PlnXq5pXLA/KLz6ixpIlZCU1DSNaYeq36KSS6DB40FUGh6ydS16qHKgDhNgzoBSC4IPy8h2/BKLfuV7qGmt2475V67PCz+0NpOOMcMPE5hnM/SfLUn8+S2E84xjkv5lMZR2znMfoiSw1tezSKXih77Nyag22jQdngsWsRRjX2E4la4+jFztvnrnjr66bz4xftnyrri9OhOxJOBe7jofqzsn2obtzks1HaKbkfidPk7TiNyP88/eN5mgDmOIPCj1PJ/SScCJ/nkfR5VERpISHkEv9inu5/AuDtQ4PJBgAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=13feedf8935c36108543b2597bba103e"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment>Concatenate everything to the solution proposal field</comment>
+        <compiled_snapshot>f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:22</sys_created_on>
+        <sys_id>1832cc249350f2108543b2597bba10b0</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:51:36</sys_updated_on>
+        <ui_id>bdd0073d-822d-4d04-af32-cbaf7284ffb4</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1a227bOBD9FUL7GmV1sZ3YfVgUCbot0E2Lpmgf2kKgSMoiSpNakkriGgH2fT9hgf24/ZId6mbl1iptUdStEiCOhpzhmeEMjzXgm43HqbfwJowG4TyckTiM4ygIosNJmM7iNIxojBkLvT1P4hWDmZoRpSk8n2FROsFmc6QZtowm4T4ptWbSXl7COOWmEHj9qpkGEpJzQWHcW7x5t+cVWINFy7S32FwbGgpJ4JQJmPqixXQdo10X7pkqUq4AV8Jb4dNG87gZQU+OYQSUHJww2PPYhWWSMgCSYWHYnrfCkmKr9NpbWF2CAJymz6RYdzNyLm3t6ApfGP4BVp4Ebl7GwDPSBKF7TJoA1eLsGFt8CpaJLXUXL8UJM3VMKMtwKexRX1ZPeFZYrmStYnEqWm0lypU8qSPidQZ6+1EaAMEK56dDXruVnebq/EUL8hGXVUgaF4UiWHRP2FrN09I6OBuPCVbFeIWLgstlUmh1xitlgLLaXwp42M+EOoc1DV/KfUwc7n2IKt5/BPLjSvwKa+6c+APMgPLlnmfW5khgY7auQAyTP0uHpHascSGpolCFIKkywSkTzQv7EJY6Yw3wy70m6dPpxzKMzLcJ1bO5TfyLxEiS5Ji8nyyVoknQ+x+cL5QBhDfq4LGb8zvMQc+3c+5XGQNwt5XxssqH2/1oiuOG7GlfF53UA01pTL9aaRzuUmk0bux8bXyqIoLoo2duL5OqIjC9ajAQU4e5S/23ZRDEtPpL8qj6ZPWTsVrJZS15rM4RVWitSsTkGTdgAdmcIQgIFqg1iqwCKTfIKUUzmZriAawDoVj9Vtv8tW+0EXWrylpQIBdP33K5XhGmlbIpbNr7BqgHv512s0ZjqLhqJ4/r59c5Jzk6ZfoMUu0EHAFIFLLUIKURwQVOueCWM4POVSkoShmCvKIt4tZMB+9KjAosEXFb28Jz2BM4GtxmFlyItx4ydi1YN17XzAJxKbhkD2CcKAmlCtTMq+RvZ1Z7DsNVNJypag/b0c0mo4nVWJpM6dViHkAyTOO5P4+yqT85JJGfzljkHxyEhyGmAWZTennZj93d4GEphDAhrLBmu0SSlbJKdwOYAKgrq4tWMfjGbjQpwozltDXlzp/nYP8JHeJmBcVvMFefGLZDf0rVaZkhkwDche2AKiUsL/wtWJwnjfClKq5Pa1C1c93JgtpDpS2upX2ATk8cO1W5PAiSsVjbduZVq215guIAQ1hrdT48yhXN+QSKwt5X6cpK//37zx04Py24wxM4dlvr/Wh+7ipAJRbOwe0+3yyfJMMEU5YMSXVXVX3Id1pDUvUqFXhHcOa03fbWkWxNPAOmQd1U1NpBBSfvmUYgRFczA4J+jzyrTzW/Zi+fQybfonH7gShVdRw2W/3X34M3oQ76/TbqpuAae/SO+Y+zjL7qTlp9BYNSLhYoLi4cN3KKfknTtPPtOkE91MyRKfzFco0sI7nk8CUFtd8KiOMmtzGOcWveZrQj3d3iqdk8OGBpyPwDHMwh62fEx9Mp9gNKIxJP5xGehzvAU0PdGHnK8dTLLqWPeyk9UtYXU9Ydgf0G7DWkAL4T9vq87BuJ7P5E9jrHFpEcC8Hksnufci+NsDHMMHhfhOxaFfVrNrxh12+L7iVyt1gsDrPgYBKFkP0HM3+SzTJ/fhhlfnwYUxZm00mckh1gsaFujCzmWOyoS+yRub6YuXrB/AZsNSTRvxO2Gp5lO89QN7vuY3dy7E5+x3w5difH7uTYnRy7kz/VS93YnRy7kz80T43dybE7OXYnf3wiG7uTY3fyx2WxsTs5difH7uTX7U7e777vgFuZ7X3fR5wJam65ptle9mVAQ9iypL62ee3CbzOIXjWD3X34r3brN5wF1c8O3f39aa7Fv/sfGPT97w0yAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1832cc249350f2108543b2597bba10b0"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=6cc140249350f2108543b2597bba10ac"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=6cc140249350f2108543b2597bba10ac^sys_idNOT INe9ef6c0947dc3210e52659db416d43eb"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">0c24700147107210e52659db416d432d</block>
+        <comment>Pick out the the necessary values and store in flow variables</comment>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</flow>
+        <flow_variables_assigned>sn_products,technical_dependencies,challenges</flow_variables_assigned>
+        <generation_source/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 09:20:02</sys_created_on>
+        <sys_id>e9ef6c0947dc3210e52659db416d43eb</sys_id>
+        <sys_mod_count>51</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:16</sys_updated_on>
+        <ui_id>51bde0d8-3859-48cf-9f60-aa98c5911da9</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1a227jNhD9FUFPCWAbuvqSPCyCLhYIsM0WTbov9UIgxZHNlqa0JOWsG/jfO5RkWblutkmLJJWRKObwMjNnhmfsQa7cvDRFafRFfqI1X0j36PcvA5dLK8P3V64kK3CPXC2TQuWsTFE8cNdElFaKbxnXhSCbz3tJuuSCKWiOKojCEwwo9+jqxpTZFJAIQkHgxnOjuFzgds5wNPFSP/KCaBbGXhb43jSOQhrEswmlxPdohOvajWfOL3vL7jTXKrLCnYpcMWuPP3DhmwHJAFVmRGgYuCsiGTG52rQSBYR9kmIvWHJpak9X5Jvmf+HRU8/z7MoM0Lm0waEdJg1GO3hynsKnwvBc1hJDqNhhl4tyJc9qJyy6kJFSmA66pcbzoLBWWzMam7LzZX75607hBy4rB5tJkadEtCNiEAZaGtA2IiW/uAFOLfl4MywgYIUakxUpCpRYeNe80oJGr0YLgYNRJvJLtM4m0oik1sMRoklGH1D+vhJ/Jopbd3/GY3CzVfeb5F9LOLVhDyck8CCOhwFl/jCapN6Q0ikbBl5EvZhGWRhO3W0FbfK1tE7VIDVwJDWiuECnihfmBE1Yo3NGlbCTWae72WGHDyxG56Q2zroxWzvz0vNC5mQsqTxL/CRZgEk0Bs7623ifKNAF7gQ9arcezyXPnIMTpchmxHX196CdPTx0rubSwVetMctLyXba2lWjDEN7kNM/mpnqCc5OEIzrpxWMEFRdmWTvRHd986x3TDpg1ILD49oOa2xlRWuZfSkwpZK1eSMi9SUo59314ZEzd89y5xzUGjP9LL9sL6gjuDaA6OXKMUuunR1sc7dRup1L/GmUyFKIY3e73Q5aHjKQLiXHfG4vQcqhS0nfi1fw2uN1NwLXQ9cN0u3oVLDexvkWl/dQ/nMon6MIhtMHiyDpFMGLnSfO++vX4nvX5p7SGPSl8YWVRuqn4zgO6HDGAIYRRLPhbBKQYRpRFlKYTMaz+BlK4z2J0lfJf6tKtoA7XcCdJV8sBf4+rVqmSyIEyAX8Jx/a6cN8xTp89VPXsLuMvYeXwp6XXhgvjb0IfD8mw2kQechL+OF9mgWzoTfOYhqkfuDH7Bl4qZMc/3su2mPxvFSEt97wtBREOXsVT2KiL5Z1GiCqboLNto/5gqeniBjBvD/f6CqNYAbZOPVm0YSlIXIHxME4njEa+WMWhUB/oDHQdyx6+us7Fm+Y/15Jx+LJXPeI7399V6TvirwiKPuuSF9++67I26nEj6GKl9kgeXJxfkSzo2/C9DTYN2HeKPW9qiYMg5RrXHlh0Tjd/XOHndigl5YE96LLXP1p83Ev2/4N/+VM4yYiAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=6cc140249350f2108543b2597bba10ac^sys_idNOT IN34c180249350f2108543b2597bba1008,70c180249350f2108543b2597bba1009,7cc180249350f2108543b2597bba1008,f8c180249350f2108543b2597bba1008,fcc180249350f2108543b2597bba1008"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>6cc140249350f2108543b2597bba10ac</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.sn_products}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:30</sys_created_on>
+        <sys_id>34c180249350f2108543b2597bba1008</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>ac4275da-ca37-4b69-ad1c-78827aae224d</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>6cc140249350f2108543b2597bba10ac</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.technical_dependencies}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:30</sys_created_on>
+        <sys_id>70c180249350f2108543b2597bba1009</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>6907eb1e-7a09-486c-a55a-0dd2c3592a91</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>6cc140249350f2108543b2597bba10ac</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.sn_products}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:30</sys_created_on>
+        <sys_id>7cc180249350f2108543b2597bba1008</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>90c31539-92f5-48c2-b6e2-77181ad0ae5d</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>6cc140249350f2108543b2597bba10ac</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.challenges}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:30</sys_created_on>
+        <sys_id>f8c180249350f2108543b2597bba1008</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>31f07421-7a76-4f6f-982f-383de1f543bc</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>6cc140249350f2108543b2597bba10ac</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.sn_products}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:30</sys_created_on>
+        <sys_id>fcc180249350f2108543b2597bba1008</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:30</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>f195e3ff-38cf-4f6b-8587-5eff61868a3e</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="delete_multiple" query="model=6cc140249350f2108543b2597bba10ac^sys_idNOT IN38c140249350f2108543b2597bba10ba,70c140249350f2108543b2597bba10b4,b8c140249350f2108543b2597bba10bd"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=b1c6552b-9dee-4e49-972a-c4bd3be77695</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>technical_dependencies</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Technical Dependencies</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</model>
+        <model_id>6cc140249350f2108543b2597bba10ac</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_variable_6cc140249350f2108543b2597bba10ac</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>38c140249350f2108543b2597bba10ba</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:38:26</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=37a20e55-2bd1-47c0-bb8d-204b05b4f338</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>sn_products</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>SN Products</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</model>
+        <model_id>6cc140249350f2108543b2597bba10ac</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_variable_6cc140249350f2108543b2597bba10ac</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>70c140249350f2108543b2597bba10b4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:38:26</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=604e115a-8240-4e55-8f29-06f5b2c1215d</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>challenges</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Challenges</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</model>
+        <model_id>6cc140249350f2108543b2597bba10ac</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_variable_6cc140249350f2108543b2597bba10ac</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>b8c140249350f2108543b2597bba10bd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:38:26</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6cc140249350f2108543b2597bba10ac</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>b4c140249350f2108543b2597bba10ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:29</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6cc140249350f2108543b2597bba10ac</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:41:29</sys_created_on>
+        <sys_id>f4c140249350f2108543b2597bba10f0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:41:29</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_6cc140249350f2108543b2597bba10ac"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_6cc140249350f2108543b2597bba10ac"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=5559000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>28100</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from>a0b0834c935472108543b2597bba104d</copied_from>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>h4g_populate_solution_proposal</internal_name>
+        <label_cache>[{"name":"Created_1.current","label":"Trigger - Record Created➛Hack4Good Proposal Record","reference":"x_snc_hack4good_0_hack4good_proposal","reference_display":"Hack4Good Proposal","type":"reference","base_type":"reference","usedInstances":{"da1e8d3c-b9e1-4b43-b44b-8cedc617f293":["requested_item"],"18e46726-613e-40cf-aab9-78e586108df5":["record"],"bdd0073d-822d-4d04-af32-cbaf7284ffb4":["record"],"f85cfa0e-4eb7-4254-8ea4-32ad8070d683":["requested_item"]},"attributes":{}},{"name":"f1b096e9-7fe5-4052-8a5d-c6304c82b8c6.variables","label":"1 - Get variables➛Variables","reference_display":"Variables","type":"array.object","base_type":"array.object","usedInstances":{},"attributes":{"sourceId":"2ece1b7e-8dee-4851-9409-5fbe6698c629","child_name":"variable","uiUniqueId":"e733098e-b507-460d-81b1-4e5ac980b90c","uiTypeLabel":"Array.Object","co_type_name":"FD73be297c139c36107daa3f2a4eee769b","child_label":"Variable","child_type_label":"Object","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","sourceType":"step","sourceUiUniqueId":"045da822-7333-4005-8cb1-9612454cdae2","uiType":"array.object","child_type":"object","child_uiUniqueId":"7c186012-2199-46ba-a722-760c9201243b"}},{"name":"flow_variable.challenges","label":"Flow Variables➛Challenges","type":"string","base_type":"string","usedInstances":{"18e46726-613e-40cf-aab9-78e586108df5":[null]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"604e115a-8240-4e55-8f29-06f5b2c1215d"}},{"name":"Created_1.table_name","label":"Trigger - Record Created➛Hack4Good Proposal Table","reference":"x_snc_hack4good_0_hack4good_proposal","reference_display":"Hack4Good Proposal","type":"table_name","base_type":"table_name","choices":[{"order":0.0}],"usedInstances":{"f1b096e9-7fe5-4052-8a5d-c6304c82b8c6":["table_name"]},"attributes":{"test_input_hidden":"true"}},{"name":"flow_variable.sn_products","label":"Flow Variables➛SN Products","reference":"","reference_display":"","type":"string","base_type":"string","usedInstances":{"18e46726-613e-40cf-aab9-78e586108df5":[null]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"37a20e55-2bd1-47c0-bb8d-204b05b4f338"}},{"name":"Created_1.current.sys_id","label":"Trigger - Record Created➛Hack4Good Proposal Record➛Sys ID","reference":"","reference_display":"Sys ID","type":"GUID","base_type":"GUID","parent_table_name":"x_snc_hack4good_0_hack4good_proposal","column_name":"sys_id","choices":[{"order":0.0}],"usedInstances":{"f1b096e9-7fe5-4052-8a5d-c6304c82b8c6":["record_sys_id"]}},{"name":"flow_variable.technical_dependencies","label":"Flow Variables➛Technical Dependencies","type":"string","base_type":"string","usedInstances":{"18e46726-613e-40cf-aab9-78e586108df5":[null]},"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":"","uiUniqueId":"b1c6552b-9dee-4e49-972a-c4bd3be77695"}}]</label_cache>
+        <master>true</master>
+        <name>H4G: Populate solution proposal</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="H4G: Populate solution proposal">6cc140249350f2108543b2597bba10ac</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>654240649350f2108543b2597bba10ef</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:18</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=654240649350f2108543b2597bba10ef"/>
+    <sys_variable_value action="delete_multiple" query="document_key=654240649350f2108543b2597bba10ef"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=654240649350f2108543b2597bba10ef"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=654240649350f2108543b2597bba10ef^sys_idNOT IN654240649350f2108543b2597bba10f0"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>654240649350f2108543b2597bba10ef</id>
+        <name>H4G: Populate solution proposal</name>
+        <sys_class_name>sys_flow_cat_variable_model</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:43</sys_created_on>
+        <sys_id>654240649350f2108543b2597bba10f0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:43</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=654240649350f2108543b2597bba10f0"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=654240649350f2108543b2597bba10ef^sys_idNOT INa14240649350f2108543b2597bba10fe,a94240649350f2108543b2597bba10f1"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</model>
+        <model_id>654240649350f2108543b2597bba10ef</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_654240649350f2108543b2597bba10ef</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>a14240649350f2108543b2597bba10fe</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:17</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a14240649350f2108543b2597bba10fe"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</model>
+        <model_id>654240649350f2108543b2597bba10ef</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_654240649350f2108543b2597bba10ef</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:43</sys_created_on>
+        <sys_id>a94240649350f2108543b2597bba10f1</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:17</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=a94240649350f2108543b2597bba10f1"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=654240649350f2108543b2597bba10ef"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=654240649350f2108543b2597bba10ef"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=654240649350f2108543b2597bba10ef^sys_idNOT IN254280649350f2108543b2597bba1040"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>254280649350f2108543b2597bba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VYXW/bNhT9K4KeVsAD9GHHcd7axF0DdM3quNtDkAmUSNraaNITKSVekf++S33Ysj4cO1Y65yWISIr38Ojccy99991kyCfMvDCnyGfE7JkhVyTiiE1XSwLDSg97HC303AJxjJSIVuaFimLSM2kkFlOyWDKkYDFFTMKgiDCJzAu7ZyaIxeR2Ja8x7ATvp9vke5r5NDw/epIH3hwFf/dnQmDPKv2/jMRSSMRgOQ4lBFr9nr/1Sa/5BdYYv23WBPOQ4Yhw8+LuvmcuUQQRlUbzvTIVakgBDdDIIVbg2q7jWJZz3rf9M9e3HewiYlmwYZWeyhFUA0ub85NHRTgmeE1NjcCIIHzD2Wq9Yg78Z2Qt0KMM/4Xdzy29jhLAHpBsbv3o5aRkw8FchAG5WapQ8Gwkw5lNChYv+JcMv6aTUBQzVdAJI7GE/chSQ9YgckT0di4eJkXAjyFPT5dPMhEA78UTUioK/VgRqQmnIQPqvYwbKeIoRT8ZX95Mrrw/3k8vP40n3mR8O51cX07HV+ZTei7vn1jvmCHMsXjZcZ7WGvgYEqY/IKjjLxKognkZROFSvQ9UmBRyfOptJH4pOA5TbmoyD4opuS3zgoNdOresVqUHpYiF2v8cf62LORs8TL1nZwhhglrU69OSessnb4CmGkgon26XjvORfYTct6z/Scq5W71UyQuBCbvabGfC5GwG2g75MlaarQfElfSU8BDGXolHvRQwPSft7GxPzyo4ijm84K2/R13HKW1r/j6HEuDeQS4W3KRbwjz9nG85ibkh4MPBHyOII6BGGYW70esFmuWM0lvCINVKIqDfZPnp11DKkM9KqNdBUw5qMdfhQExGcaQstjwy+H2XSVwnPamQWUnmgzPZtin1CXWsoc5j23J9altDa4Aodi0rcEqZXAfTilJVJPEqGX1YPstUjGwP6VUpzsFb5WzYS0bJtgYLErREctu47Aaa3RE0R0Or2J97kP+tZZkNX22rc9fROu4AEE4QvIH3tcE9HZAy8QDW+wL386FnnEUi5rhqR3pPI+TGZoXxU87fuw6dkIqI7AawveKUPHBDeyFcxFcduJ9LbX9E+sQC03PB7/zBaOQHyKF0eDYkjl1xvw2MRmxvwvWeUVvSJNc2B2wUTtKktwO87wiANR88GODxDpgLs9H/srm34XQPc8I9gBp5THtZzfBmLMSkmOs222uhk01+H5vx9HwUDOzhMBjCrQUynvaJj+y+M0Cj4Zl7PqhkfA3KLpiqgZkfcpeRK5kCaXGDb9nUaV3RX1O2kiily9HhVZpDH5u+g7IgpUqpP4uRmoqIjC+C/3y9WWfcEiiA6YW2q3K9Dwr9YY3XheELNa/1CxD6A4xvhdZ9ZgsrJ3elqogk2T7r0Vcq0j8fjKjbbDF01GQxGzDtME++vdgzQ5LWXGvqM/YVfNKYN62NwQskXJFJuWPY0dJ0RYrdOSnO65HiHt1GFbnYeo98Cdg3VMLSvuKYOqZjEk/QsnlfCQMmDAhihNTIf0kk2PBXhpoToJRBvwwBDR39WNcuV5E6lLWCfyyQrAOvVTMYNvIG6vQKVUUK3d6ACR6iwcBt6YdH1RtwE6Bn8J582To4K5KmJNtZuw7bt7pnY/UqSXZbEXvWpU5P3Vycjjt1Y3l67tTHF55d9/cGFCdaUu7/A0gn6O9fHwAA</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=654240649350f2108543b2597bba10ef^sys_idNOT IN1024700147107210e52659db416d43cd,654280649350f2108543b2597bba1032"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Get variables">23be297c939c36108543b2597bba1058</action_type>
+        <action_type_parent display_value="Get variables">f7f05134931c36108543b2597bba10d6</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>23be297c939c36108543b2597bba1058</compiled_snapshot>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 09:38:31</sys_created_on>
+        <sys_id>1024700147107210e52659db416d43cd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:38:47</sys_updated_on>
+        <ui_id>f1b096e9-7fe5-4052-8a5d-c6304c82b8c6</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Ty27bMBD8lYBnSZAs2TJ9KxwEKNA2QJLmEgTCilzFBKhHKMqJa/jfu5RkO0jdNAF66KHHHc5yZ4ecuy1Tki3YLM1xwlPBYy7iWRTOp0mcT6Y8zXOIwmnOPFZBicQ0KGojs3bTZtTpsTXozuHb7dIgWJRZFIjOGKxsMJB2O6JJ1TYaNrfvY4uV0pJAtri791gDhmZbNGyxfXX0XvEactREverVnx3U/2Ypu2kc3Fqjqoex/jJecb0HqcNJijyGzxYriaSlAN2ix0qoJNjabNjCmo4AWlZeVnpzYKxUZeky5rjPrfpB4+ZhGDpmgbSewOH0UGajgwNcnIMFUtIJ25mRKla1EtgOxkgsoNN2+RIbCJeNVXU1tFjI9b671l1ZfRv8YIcL9g9GSNeSCGzcpk77uEhxvaqfrvYqL1TVmzIe6lqAPlRgybq8s07PlnXq5pXLA/KLz6ixpIlZCU1DSNaYeq36KSS6DB40FUGh6ydS16qHKgDhNgzoBSC4IPy8h2/BKLfuV7qGmt2475V67PCz+0NpOOMcMPE5hnM/SfLUn8+S2E84xjkv5lMZR2znMfoiSw1tezSKXih77Nyag22jQdngsWsRRjX2E4la4+jFztvnrnjr66bz4xftnyrri9OhOxJOBe7jofqzsn2obtzks1HaKbkfidPk7TiNyP88/eN5mgDmOIPCj1PJ/SScCJ/nkfR5VERpISHkEv9inu5/AuDtQ4PJBgAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=1024700147107210e52659db416d43cd"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment>Concatenate everything to the solution proposal field</comment>
+        <compiled_snapshot>f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>654280649350f2108543b2597bba1032</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:38:47</sys_updated_on>
+        <ui_id>bdd0073d-822d-4d04-af32-cbaf7284ffb4</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1a227bOBD9FUL7GmV1sZ3YfVgUCbot0E2Lpmgf2kKgSMoiSpNakkriGgH2fT9hgf24/ZId6mbl1iptUdStEiCOhpzhmeEMjzXgm43HqbfwJowG4TyckTiM4ygIosNJmM7iNIxojBkLvT1P4hWDmZoRpSk8n2FROsFmc6QZtowm4T4ptWbSXl7COOWmEHj9qpkGEpJzQWHcW7x5t+cVWINFy7S32FwbGgpJ4JQJmPqixXQdo10X7pkqUq4AV8Jb4dNG87gZQU+OYQSUHJww2PPYhWWSMgCSYWHYnrfCkmKr9NpbWF2CAJymz6RYdzNyLm3t6ApfGP4BVp4Ebl7GwDPSBKF7TJoA1eLsGFt8CpaJLXUXL8UJM3VMKMtwKexRX1ZPeFZYrmStYnEqWm0lypU8qSPidQZ6+1EaAMEK56dDXruVnebq/EUL8hGXVUgaF4UiWHRP2FrN09I6OBuPCVbFeIWLgstlUmh1xitlgLLaXwp42M+EOoc1DV/KfUwc7n2IKt5/BPLjSvwKa+6c+APMgPLlnmfW5khgY7auQAyTP0uHpHascSGpolCFIKkywSkTzQv7EJY6Yw3wy70m6dPpxzKMzLcJ1bO5TfyLxEiS5Ji8nyyVoknQ+x+cL5QBhDfq4LGb8zvMQc+3c+5XGQNwt5XxssqH2/1oiuOG7GlfF53UA01pTL9aaRzuUmk0bux8bXyqIoLoo2duL5OqIjC9ajAQU4e5S/23ZRDEtPpL8qj6ZPWTsVrJZS15rM4RVWitSsTkGTdgAdmcIQgIFqg1iqwCKTfIKUUzmZriAawDoVj9Vtv8tW+0EXWrylpQIBdP33K5XhGmlbIpbNr7BqgHv512s0ZjqLhqJ4/r59c5Jzk6ZfoMUu0EHAFIFLLUIKURwQVOueCWM4POVSkoShmCvKIt4tZMB+9KjAosEXFb28Jz2BM4GtxmFlyItx4ydi1YN17XzAJxKbhkD2CcKAmlCtTMq+RvZ1Z7DsNVNJypag/b0c0mo4nVWJpM6dViHkAyTOO5P4+yqT85JJGfzljkHxyEhyGmAWZTennZj93d4GEphDAhrLBmu0SSlbJKdwOYAKgrq4tWMfjGbjQpwozltDXlzp/nYP8JHeJmBcVvMFefGLZDf0rVaZkhkwDche2AKiUsL/wtWJwnjfClKq5Pa1C1c93JgtpDpS2upX2ATk8cO1W5PAiSsVjbduZVq215guIAQ1hrdT48yhXN+QSKwt5X6cpK//37zx04Py24wxM4dlvr/Wh+7ipAJRbOwe0+3yyfJMMEU5YMSXVXVX3Id1pDUvUqFXhHcOa03fbWkWxNPAOmQd1U1NpBBSfvmUYgRFczA4J+jzyrTzW/Zi+fQybfonH7gShVdRw2W/3X34M3oQ76/TbqpuAae/SO+Y+zjL7qTlp9BYNSLhYoLi4cN3KKfknTtPPtOkE91MyRKfzFco0sI7nk8CUFtd8KiOMmtzGOcWveZrQj3d3iqdk8OGBpyPwDHMwh62fEx9Mp9gNKIxJP5xGehzvAU0PdGHnK8dTLLqWPeyk9UtYXU9Ydgf0G7DWkAL4T9vq87BuJ7P5E9jrHFpEcC8Hksnufci+NsDHMMHhfhOxaFfVrNrxh12+L7iVyt1gsDrPgYBKFkP0HM3+SzTJ/fhhlfnwYUxZm00mckh1gsaFujCzmWOyoS+yRub6YuXrB/AZsNSTRvxO2Gp5lO89QN7vuY3dy7E5+x3w5difH7uTYnRy7kz/VS93YnRy7kz80T43dybE7OXYnf3wiG7uTY3fyx2WxsTs5difH7uTX7U7e777vgFuZ7X3fR5wJam65ptle9mVAQ9iypL62ee3CbzOIXjWD3X34r3brN5wF1c8O3f39aa7Fv/sfGPT97w0yAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=654280649350f2108543b2597bba1032"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=654240649350f2108543b2597bba10ef"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=654240649350f2108543b2597bba10ef^sys_idNOT IN5024700147107210e52659db416d43ce"/>
+    <sys_hub_flow_logic_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">0c24700147107210e52659db416d432d</block>
+        <comment>Pick out the the necessary values and store in flow variables</comment>
+        <connected_to/>
+        <decision_table/>
+        <display_text/>
+        <flow display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</flow>
+        <flow_variables_assigned>sn_products,technical_dependencies,challenges</flow_variables_assigned>
+        <generation_source/>
+        <logic_definition display_value="Set Flow Variables">4f787d1e0f9b0010ecf0cc52ff767ea0</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic_instance_v2</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 09:38:31</sys_created_on>
+        <sys_id>5024700147107210e52659db416d43ce</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:17</sys_updated_on>
+        <ui_id>51bde0d8-3859-48cf-9f60-aa98c5911da9</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1abW/bNhD+K4I+JYAl6NW2kg9DkKBAgC4dlqxf5kLgm2xuNKWKlF3P8H/fUW92mixN1hRNWhmxYp6OuocPj8/BB2/tvNJFpdVNfqYUn0v75M8PI5tLY4PPWzsT+fptPufkUiqNJGHXG3VJ7RObJSwbEy+JJpSEge+xOBjHCcWRP6ZRyLANjzF+E4/4kRdESRh7GfhN4yjEQZxMMEa+hyPwk2jJwFPJtChzWhEIPbJXSFTGCh8pV4VAm/d7C1lwQUvWwi1QCU/QrLRPtp/deiwEgTAT4Hp9Zf22x3AvML0paqMuuZy347fd9M6Yl9TA8Uc2+6SZpAxwZEgoNrKXSFKk83LTW0qG6Dsp9oYFl7pZ6BJ9UvwfiDf1PM94ZgzWRloa+mHaUtSYswukEUABwFXZM5ZzwlTDCmUZqoQ+P7Q1Du8KzXPZTNEIi252LqqlvGrosPsHHOxIpQAEK8xSDfZ2Idn1Il//3qF8w2XNSntT5ASJfoQ0cIcrbfBs7YrffEZzY7lDNBNsCRHTJSoKsJiNWvE6CoBeunMBA9ckMaAzCe4iYlbowhYg9w3YL2rze1Rys9xf4TEw2YT7Q/KPFatzPZygABI8dgJMfSeaEM/BeEqdwIuwF+MoC8OpvRvZaqPOBVJqTxTsUPqxMstsaGsJShuOzRRS8kKfAagVTIE9Y53N0HCYeWb4gDMsF06otWoXoqxZ5XkhtTKa1mtN/TSdM50q2ErDQMtHWjJVwEym3H7q6UzyzDo6K0u0cbmq/x/1d4+Pre1MWvBqImZ5JWkXrfdyM9jsoxz/1d6pr8zqDMG4uRqDCzSrGpI5b4f+7bWZMTkgozEcnzY4DNgaRY/MvEoG2S8beC6Sas1K65fbwxNrZl/l1jUrV5D7V/m6P/yW4EozYC8vLb3gyupom9lt0N1Mwl8bRFZCnNq73W70DIoZTh+UK7QXJs3IQnI4Rf3RI5wdiueXciJ47TlxPwO30+MwEe5mQL11d/fyTtUZqPz/VD6tXD8i/7tyfdNhti5uH4AvHZCnFPFgKOI/QhHHPhnHcYCdhDLmRCxKnGQSIIdEmIaYTSbjJP4mRfw/kvCnr+ePEZyvLe19DOswhrXg84WA9/cq8fhhiaN7BSMLJASTc/bM34kegaAT2fNDCPfBeoqYhoOY/ghiOvYi5vsxcqZB5IGYwnejaRYkjjfOYhwQP/Bj+k3E9CDxfnoB3XPxvKIJ2qE5qQQqrX2Ir9LMD0a7WiKGttLQVhpEdGgrvRQVHdpKQ1tpaCu9RiqHttJQxL97ER/aSq9QcIa20tBWGsT05Ynp0FZ6AQL6qtpKlBGuwPPGsHHZ/W7J3NjAKo2U7k3rvPzbZOjetvsX3RGpfQElAAA=</values>
+        <workflow_reference/>
+    </sys_hub_flow_logic_instance_v2>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=654240649350f2108543b2597bba10ef^sys_idNOT IN294280649350f2108543b2597bba1040,2d4280649350f2108543b2597bba1040,a54280649350f2108543b2597bba1040,a94280649350f2108543b2597bba1040,ad4280649350f2108543b2597bba1040"/>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>654240649350f2108543b2597bba10ef</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.sn_products}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>294280649350f2108543b2597bba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>90c31539-92f5-48c2-b6e2-77181ad0ae5d</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>654240649350f2108543b2597bba10ef</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.sn_products}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>2d4280649350f2108543b2597bba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>f195e3ff-38cf-4f6b-8587-5eff61868a3e</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>654240649350f2108543b2597bba10ef</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.sn_products}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>a54280649350f2108543b2597bba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>ac4275da-ca37-4b69-ad1c-78827aae224d</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>654240649350f2108543b2597bba10ef</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.challenges}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>a94280649350f2108543b2597bba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>31f07421-7a76-4f6f-982f-383de1f543bc</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_pill_compound action="INSERT_OR_UPDATE">
+        <attached_to>654240649350f2108543b2597bba10ef</attached_to>
+        <extra_info/>
+        <order>0</order>
+        <prescription>{{flow_variable.technical_dependencies}}</prescription>
+        <source_ui_id/>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>ad4280649350f2108543b2597bba1040</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <transform_compositions>[]</transform_compositions>
+        <transform_definition_id/>
+        <ui_id>6907eb1e-7a09-486c-a55a-0dd2c3592a91</ui_id>
+    </sys_hub_pill_compound>
+    <sys_hub_flow_variable action="delete_multiple" query="model=654240649350f2108543b2597bba10ef^sys_idNOT IN694280649350f2108543b2597bba1021,ad4280649350f2108543b2597bba101a,e54280649350f2108543b2597bba101e"/>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=604e115a-8240-4e55-8f29-06f5b2c1215d</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>challenges</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Challenges</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</model>
+        <model_id>654240649350f2108543b2597bba10ef</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_variable_654240649350f2108543b2597bba10ef</name>
+        <next_element/>
+        <order>3</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>694280649350f2108543b2597bba1021</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=37a20e55-2bd1-47c0-bb8d-204b05b4f338</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>sn_products</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>SN Products</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</model>
+        <model_id>654240649350f2108543b2597bba10ef</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_variable_654240649350f2108543b2597bba10ef</name>
+        <next_element/>
+        <order>1</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>ad4280649350f2108543b2597bba101a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_hub_flow_variable action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=b1c6552b-9dee-4e49-972a-c4bd3be77695</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>technical_dependencies</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="String">string</internal_type>
+        <label>Technical Dependencies</label>
+        <mandatory>false</mandatory>
+        <max_length>8000</max_length>
+        <model display_value="H4G: Populate solution proposal">654240649350f2108543b2597bba10ef</model>
+        <model_id>654240649350f2108543b2597bba10ef</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_variable_654240649350f2108543b2597bba10ef</name>
+        <next_element/>
+        <order>2</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_variable</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>e54280649350f2108543b2597bba101e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_variable>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_654240649350f2108543b2597bba10ef</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>2d4280649350f2108543b2597bba100e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_654240649350f2108543b2597bba10ef</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_id>694240649350f2108543b2597bba10fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-26 16:43:44</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_654240649350f2108543b2597bba10ef"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_654240649350f2108543b2597bba10ef"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>6cc140249350f2108543b2597bba10ac</sys_id>
+        <latest_snapshot>654240649350f2108543b2597bba10ef</latest_snapshot>
+        <compiler_build>glide-zurich-07-01-2025__patch1-hotfix1-09-18-2025_09-20-2025_1616.zip</compiler_build>
+        <version_record/>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=6cc140249350f2108543b2597bba10ac^sys_idNOT IN754280649350f2108543b2597bba1056"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"754280649350f2108543b2597bba1056","name":"plan","plan_signature":null}}</plan>
+        <plan_id>6cc140249350f2108543b2597bba10ac</plan_id>
+        <snapshot>44273c4547107210e52659db416d4393</snapshot>
+        <sys_class_name>sys_flow_trigger_plan</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-26 16:43:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>754280649350f2108543b2597bba1056</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 09:49:18</sys_updated_on>
+        <trigger display_value="">d696fc0547107210e52659db416d4332</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=6cc140249350f2108543b2597bba10ac"/>
+</record_update>

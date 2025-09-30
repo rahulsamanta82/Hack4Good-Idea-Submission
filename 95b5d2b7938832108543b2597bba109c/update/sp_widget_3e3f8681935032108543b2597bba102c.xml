@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script/>
+        <controller_as>c</controller_as>
+        <css>/* ===== Hack4Good Thanks Widget – ServiceNow Colors ===== */
+
+.h4g-thanks {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px;
+  background: #032D42;                  /* SN dark background */
+  color: #e7ecf7;                       /* Light text */
+  border: 1px solid #06354e;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+  background-image:
+    radial-gradient(600px 300px at 100% -10%, rgba(99,223,78,.12), transparent 60%),
+    radial-gradient(700px 360px at -10% 120%, rgba(0,163,163,.10), transparent 60%);
+}
+
+/* Hero */
+.h4g-hero {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #06354e;         /* same as footer background */
+}
+.h4g-hero .fa-check-circle {
+  font-size: 42px;
+  color: #63DF4E;                       /* SN primary accent */
+  margin-bottom: 12px;
+}
+.h4g-hero h1 {
+  font-size: 28px;
+  margin: 0;
+  color: #e7ecf7;
+  overflow-wrap: anywhere;              /* wrap long project names */
+}
+.h4g-hero .muted {
+  color: #9fb0ce;
+  margin: 0;
+}
+
+/* Intro paragraph */
+.h4g-intro {
+  margin: 12px 0 24px;
+  text-align: center;
+}
+
+.h4g-intro p {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #e7ecf7;
+  margin: 0;
+  position: relative;
+}
+
+.h4g-intro p .emoji {
+  font-size: 22px; /* slightly bigger than text */
+}
+
+.h4g-intro p::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: #63DF4E;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Steps with icons */
+.h4g-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.h4g-steps &gt; li {
+  display: flex;
+  gap: 16px;
+  border-top: 1px solid #06354e;
+  padding: 20px 0;
+}
+.h4g-steps &gt; li:first-child {
+  border-top: none;
+}
+
+.h4g-steps .icon {
+  flex: 0 0 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #06354e;
+  border: 1px solid #0a4661;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h4g-steps .icon .fa {
+  font-size: 18px;
+  color: #b9c7e4;
+}
+
+.h4g-steps .content h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #e7ecf7;
+}
+.h4g-steps .content p {
+  margin: 0 0 10px;
+  color: #b9c7e4;
+  overflow-wrap: anywhere;              /* also protect step text */
+}
+
+/* Numbering */
+.h4g-steps { 
+  counter-reset: step-counter;  /* start the counter */
+}
+
+.h4g-steps &gt; li {
+  counter-increment: step-counter;
+  position: relative;           /* for potential future tweaks */
+}
+
+/* Put the number badge on the icon box */
+.h4g-steps .icon { 
+  position: relative;           /* anchor for the badge */
+}
+
+/* Number badge (top-left of the icon) */
+.h4g-steps .icon::after {
+  content: counter(step-counter);
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0a4661;          /* dark circle background */
+  color: #63DF4E;               /* ServiceNow green numbers */
+  font-weight: 700;
+  font-size: 16px;              /* bigger number */
+  line-height: 28px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+
+/* Bonus step shows "+" instead of a number */
+.h4g-steps &gt; li.bonus-step .icon::after {
+  content: "+";
+}
+
+/* Buttons */
+.h4g-thanks .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid #0a4661;
+  background: #06354e;
+  color: #e7ecf7;
+  text-decoration: none;
+  transition: background .15s ease;
+}
+.h4g-thanks .btn:hover {
+  background: #0a4661;
+}
+.h4g-thanks .btn-primary {
+  border: none;
+  background: linear-gradient(180deg, #63DF4E, #4bb536); /* SN green gradient */
+  color: #032D42;
+}
+.h4g-thanks .btn-ghost {
+  background: transparent;
+}
+
+/* Links inside the card */
+.h4g-thanks a {
+  color: #63DF4E;
+}
+.h4g-thanks a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .h4g-thanks { padding: 24px; }
+  .h4g-steps &gt; li { flex-direction: row; }
+}
+
+.commit-box {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid #0a4661;
+  border-radius: 12px;
+  background: #06354e;
+}
+
+.commit-box p {
+  margin: 0 0 10px;
+  color: #e7ecf7;
+  font-size: 16px; /* same as your base text */
+}
+
+.commit-sample {
+  margin: 0 0 12px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed #0a4661;
+  background: #032D42;
+  color: #e7ecf7;
+  font: 500 16px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.copy-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.copy-feedback {
+  font-size: 16px;
+  color: #63DF4E;
+}
+
+/* Support footer */
+.h4g-support {
+  margin-top: 28px;
+  padding: 18px;
+  border-top: 1px solid #0a4661;
+  border-radius: 12px;
+  background: #06354e;           /* subtle dark background (like commit box) */
+  text-align: center;
+  font-size: 15px;
+  color: #e7ecf7;
+}
+
+.h4g-support a {
+  color: #e7ecf7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.h4g-support a:hover {
+  text-decoration: underline;
+}
+
+/* Slack icon styling + playful hover */
+.h4g-support .fa-slack {
+  margin-right: 6px;
+  font-size: 16px;
+  vertical-align: middle;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.h4g-support a:hover .fa-slack {
+  color: #e7ecf7;                /* brighten icon */
+  transform: rotate(-15deg) scale(1.2);
+}
+
+/* Slack icon with real brand colors */
+.h4g-support .fa-slack {
+  background: conic-gradient(
+    from 45deg,
+    #36C5F0 0deg 90deg,   /* Blue */
+    #2EB67D 90deg 180deg, /* Green */
+    #ECB22E 180deg 270deg,/* Yellow */
+    #E01E5A 270deg 360deg /* Red/Pink */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;        /* Firefox */
+  text-fill-color: transparent;
+  margin-right: 6px;
+  font-size: 18px;
+  vertical-align: middle;
+  transition: transform 0.25s ease;
+}
+
+.h4g-support a:hover .fa-slack {
+  transform: rotate(-15deg) scale(1.2);
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>h4g_thanks</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>H4G thanks</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+  // --- constants ---
+  var CONTRIBUTING_URL = 'https://example.com/your/CONTRIBUTING.md'; // fill me
+
+  // --- helpers ---
+  function normalizeRepo(url) {
+    if (!url) return '';
+    url = ('' + url).trim();
+    if (url.endsWith('.git')) url = url.slice(0, -4);
+    return url.replace(/\/+$/, '');
+  }
+
+  function pluginActive(pluginId) {
+    try {
+      var pm = new GlidePluginManager();
+      if (pm && pm.isActive(pluginId)) return true;
+    } catch (e) { /* scoped envs may block direct call */ }
+    // Fallback: query sys_plugins
+    var sp = new GlideRecord('sys_plugins');
+    sp.addQuery('id', pluginId);
+    sp.addQuery('active', true);
+    sp.setLimit(1);
+    sp.query();
+    return sp.hasNext();
+  }
+
+  // === Part 1: Proposal label (display field project_name) ===
+  data.proposal = '';
+  var ideaId = $sp.getParameter('idea'); // ?idea=<sys_id>
+  if (ideaId) {
+    var pr = new GlideRecord('x_snc_hack4good_0_hack4good_proposal');
+    if (pr.get(ideaId)) data.proposal = pr.getDisplayValue(); // project_name
+  }
+
+  // === Part 2: Repo info from sys_repo_config (current app) ===
+  data.repo = '';
+  data.branch = '';
+  data.github_user = '';
+  data.contributing_url = CONTRIBUTING_URL;
+  data.fork_branch_url = '';
+  data.pr_url = '';
+
+  var appId = gs.getCurrentApplicationId(); // current scoped app sys_id
+  if (appId) {
+    var rc = new GlideRecord('sys_repo_config');
+    rc.addQuery('sys_app', appId);
+    rc.orderByDesc('sys_updated_on');
+    rc.setLimit(1);
+    rc.query();
+    if (rc.next()) {
+      var repoUrl = normalizeRepo(rc.getValue('url'));
+      var branch  = rc.getValue('current_branch') || 'main';
+
+      // credential -> GitHub username (best-effort)
+      var ghUser = '';
+      try {
+        var cred = rc.getElement('credential') && rc.getElement('credential').getRefRecord();
+        if (cred && cred.isValidRecord()) {
+          if (cred.isValidField('user_name')) ghUser = cred.getValue('user_name');
+          else if (cred.isValidField('username')) ghUser = cred.getValue('username');
+          else ghUser = cred.getDisplayValue('user_name') || cred.getDisplayValue();
+        }
+      } catch (e) {}
+
+      data.repo = repoUrl;
+      data.branch = branch;
+      data.github_user = ghUser;
+
+      if (repoUrl) {
+        data.fork_branch_url = repoUrl + '/tree/' + branch;
+        data.pr_url = repoUrl + '/compare/' + branch + '?expand=1';
+      }
+    }
+  }
+
+  // === Part 3: Build Studio deep-link (new Studio on Zurich, else classic Studio) ===
+  data.studio_url = '';
+  data.studio_label = 'Open in ServiceNow Studio';
+  if (appId) {
+    var buildName = (gs.getProperty('glide.buildname') || '').toLowerCase(); // e.g., 'zurich'
+    var isZurich  = buildName.indexOf('zurich') === 0;
+    var hasNewStudio = pluginActive('sn_sns'); // new ServiceNow Studio plugin
+
+    if (isZurich && hasNewStudio) {
+      // New Studio (supported from Zurich)
+      data.studio_url = '/now/servicenow-studio/builder?table=sys_app&sysId=' + appId;
+      data.studio_label = 'Open in ServiceNow Studio';
+    } else {
+      // Classic Studio fallback
+      data.studio_url =
+        '/$studio.do?sysparm_transaction_scope=' + appId +
+        '&sysparm_nostack=true&sysparm_use_polaris=true';
+      data.studio_label = 'Open in Studio (classic)';
+    }
+  }
+
+  // Optional: suggested commit message
+  (function buildCommitMessage(){
+    var who = data.github_user ? ('@' + data.github_user) : 'contributor';
+    var what = data.proposal || 'proposal';
+    data.commit_message = 'feat(idea): ' + what + ' — initial commit by ' + who;
+  })();
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 16:16:34</sys_created_on>
+        <sys_id>3e3f8681935032108543b2597bba102c</sys_id>
+        <sys_mod_count>61</sys_mod_count>
+        <sys_name>H4G thanks</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>sp_widget_3e3f8681935032108543b2597bba102c</sys_update_name>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-29 10:55:32</sys_updated_on>
+        <template><![CDATA[<div class="h4g-thanks">
+
+  <!-- Hero / header -->
+  <div class="h4g-hero">
+    <i class="fa fa-check-circle"></i>
+    <h1>
+      Thanks
+      <span ng-if="data.github_user">{{data.github_user}},</span>
+      your idea
+      <span ng-if="data.proposal">about "<strong>{{data.proposal}}</strong>"</span>
+      has been submitted!
+    </h1>
+  </div>
+  <div class="h4g-intro">
+    <p>Next up, let’s get your idea into GitHub! </p>
+  </div>
+  
+  <!-- Steps -->
+  <ol class="h4g-steps">
+
+    <!-- 1. Commit -->
+    <li>
+      <div class="icon"><i class="fa fa-cloud-upload"></i></div>
+      <div class="content">
+        <h3>Commit to source control</h3>
+        <p>
+          Push your changes to your repository. They’ll go to your current branch:
+          <strong>{{data.branch || 'main'}}</strong>.
+        </p>
+
+        <!-- Open Studio (new or classic, built server-side) -->
+        <p>
+          <a class="btn" ng-href="{{data.studio_url}}" target="_blank" rel="noopener">
+            <i class="fa fa-cog"></i> {{data.studio_label}}
+          </a>
+        </p>
+         <p>
+           Then click <strong>Source control</strong> <i class="fa fa-long-arrow-right"></i> <strong>Commit changes</strong>.
+        </p>
+
+        <!-- Suggested commit message -->
+        <div class="commit-box" ng-if="data.commit_message">
+          <p>Not sure what commit message to use? Here's an example:</p>
+
+          <pre class="commit-sample">{{data.commit_message}}</pre>
+
+          <div class="copy-row">
+            <button
+              class="btn btn-ghost"
+              type="button"
+              ng-attr-data-clipboard="{{::data.commit_message}}"
+              onclick="(function(el){
+                var text = el.getAttribute('data-clipboard') || '';
+                if (!text) return;
+                function ok(){
+                  var fb = el.nextElementSibling;
+                  if (fb){ fb.style.display='inline'; setTimeout(function(){ fb.style.display='none'; }, 1500); }
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText){
+                  navigator.clipboard.writeText(text).then(ok).catch(function(){});
+                  return;
+                }
+                var ta = document.createElement('textarea');
+                ta.value = text; ta.style.position='fixed'; ta.style.left='-9999px';
+                document.body.appendChild(ta); ta.select();
+                try { document.execCommand('copy'); ok(); } catch(e){}
+                document.body.removeChild(ta);
+              })(this);"
+            >
+              <i class="fa fa-clipboard"></i> Copy to clipboard
+            </button>
+            <span class="copy-feedback" style="display:none;" aria-live="polite">Copied!</span>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- 2. Verify (and open repo) -->
+    <li>
+      <div class="icon"><i class="fa fa-search"></i></div>
+      <div class="content">
+        <h3>Open your repository & verify</h3>
+        <p>
+          Open your repository and confirm your latest commit appears on
+          <strong>{{data.branch || 'main'}}</strong>.
+        </p>
+        <p ng-if="data.fork_branch_url">
+          <a class="btn" ng-href="{{data.fork_branch_url}}" target="_blank" rel="noopener">
+            <i class="fa fa-github"></i> Open your repository ({{data.branch || 'main'}})
+          </a>
+        </p>
+      </div>
+    </li>
+
+    <!-- 3. PR -->
+    <li>
+      <div class="icon"><i class="fa fa-code-fork"></i></div>
+      <div class="content">
+        <h3>Create a Pull Request</h3>
+        <p>
+          From your repo, choose <em>Compare &amp; pull request</em>, add a brief description, and submit the PR to the
+          main project. Our guidelines keep things smooth.
+        </p>
+        <p>
+          <a class="btn" ng-if="data.pr_url" ng-href="{{data.pr_url}}" target="_blank" rel="noopener">
+            <i class="fa fa-external-link"></i> Create Pull Request
+          </a>
+          <a class="btn btn-ghost" ng-if="data.contributing_url" ng-href="{{data.contributing_url}}" target="_blank" rel="noopener">
+            <i class="fa fa-book"></i> Contributing Guidelines
+          </a>
+        </p>
+      </div>
+    </li>
+
+    <!-- 4. Review -->
+    <li>
+      <div class="icon"><i class="fa fa-clock-o"></i></div>
+      <div class="content">
+        <h3>Sit back while we review</h3>
+        <p>
+          Our reviewers will take a look. You’ll get feedback or a merge via GitHub notifications.
+          If changes are needed, we’ll comment on your PR.
+        </p>
+      </div>
+    </li>
+
+    <!-- Bonus -->
+    <li class="bonus-step">
+      <div class="icon"><i class="fa fa-refresh"></i></div>
+      <div class="content">
+        <h3>Bonus: keep your repo in sync</h3>
+        <p>
+          Periodically sync your repository with the source project. After merges, open Studio and
+          <em>Pull from Source Control</em> to refresh your local app.
+        </p>
+      </div>
+    </li>
+
+  </ol>
+  <!-- Support / Help link -->
+<div class="h4g-support">
+  <p>
+    <a href="https://sndevs.slack.com/messages/C01C0RWV32M" target="_blank" rel="noopener"><i class="fa fa-slack"></i>Need help or stuck? Join our <strong>#hacktoberfest</strong> channel on Slack!</a>
+  </p>
+</div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>3e3f8681935032108543b2597bba102c</id>
+        <sys_created_by>laszlo.balla@servicenow.com</sys_created_by>
+        <sys_created_on>2025-09-28 16:16:34</sys_created_on>
+        <sys_id>323f0a81935032108543b2597bba1079</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>laszlo.balla@servicenow.com</sys_updated_by>
+        <sys_updated_on>2025-09-28 16:16:34</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
