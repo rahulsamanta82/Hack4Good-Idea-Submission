@@ -1,6 +1,14 @@
-# Hack4Good-Idea-Submission
+![Hack4Good](hack4goodbanner.png)
 
 A ServiceNow app to capture ideas for developing solutions as part of the Hack4Good initiative. This repository enables the ServiceNow community to submit innovative project proposals aimed at creating positive social impact through technology.
+
+## A Special Partnership: Hack4Good
+
+We are thrilled to announce that we are partnering with our friends at Hack4Good!
+
+Typically, ServiceNow Hack4Good is a hackathon where developers, partners, and customers create real-world solutions for nonprofit organizations. After two successful years at the Knowledge conference, Hack4Good is spreading its wings into more year-round events, and our Hacktoberfest is one of its first stops!
+
+This project is a new **Hack4Good Ideation Portal**. The records you contribute will be ideas and app suggestions that will fuel future Hack4Good initiatives. You'll learn how to contribute records to a ServiceNow repo, and your contributions will directly support future social impact projects.
 
 > [!IMPORTANT]
 > 🔔🔔🔔<br>

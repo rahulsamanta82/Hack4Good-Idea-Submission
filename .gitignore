@@ -1,2 +1,6 @@
 # The deprecated checksum file in ServiceNow generated repositories
 **/checksum.txt
+
+# Claude Code settings
+.claude/
+settings.local.json
