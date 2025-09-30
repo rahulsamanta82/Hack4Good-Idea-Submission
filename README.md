@@ -37,7 +37,7 @@ To contribute, just follow these steps:
     - [AES Create Branch Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/app-engine-studio/concept/create-versions-branches-git.html#title_source-control-create-branch)
     - [Legacy Studio Create Branch Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/applications/task/t_CreateBranch.html)
 6. Open your preferred studio experience
-7. Submit a proposal: Go to https://devprogramresources.service-now.com/h4g?id=idea_submission&sys_id=12da163393c832108543b2597bba107d and fill out the form and Submit. The confirmation screen will also have follow-up instructions.
+7. Submit a proposal: Go to `https://YOUR-INSTANCE.service-now.com/h4g?id=idea_submission&sys_id=12da163393c832108543b2597bba107d` (replace `YOUR-INSTANCE` with your ServiceNow instance subdomain) and fill out the form and Submit. The confirmation screen will also have follow-up instructions.
 8. Using a Source Control-enabled Studio, commit your changes to source control:
     - [SNS Commit Changes Instructions](https://www.servicenow.com/docs/bundle/zurich-application-development/page/build/servicenow-studio/task/sns-sc-commit-changes-to-repository.html)
     - [AES Commit Changes Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/app-engine-studio/task/source-control-commit-changes.html)
