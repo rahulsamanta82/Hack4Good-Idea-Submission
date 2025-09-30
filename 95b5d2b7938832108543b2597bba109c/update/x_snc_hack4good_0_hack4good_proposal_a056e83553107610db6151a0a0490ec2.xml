@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_hack4good_0_hack4good_proposal">
+    <x_snc_hack4good_0_hack4good_proposal action="INSERT_OR_UPDATE">
+        <focus_area>cure</focus_area>
+        <notes/>
+        <participation>yes</participation>
+        <potential_impact><![CDATA[<p>A technology solution would remove that barrier quickly because it could be a simple form and database of events and organizations. But then having a technological solution would allow for expanded interactions past that: getting the person immediately connected with that event/organization, showing them next steps, sending them follow-ups, etc.</p>]]></potential_impact>
+        <problem_statement>There are so many people who are completely new to volunteering, or donating to charity, or participating in activities/organizations that emphasize positive impact. The hardest part for some of these people exploring how to get started is simply choosing which activity or organization they should look into. These explorers could use a tech-focused tool that matches them or recommends to them activities/organizations that match their personality, their interests, their talents, etc.</problem_statement>
+        <project_name>Good4Me</project_name>
+        <solution_proposal><![CDATA[<h2><strong>How do you envision the ideal solution to this  problem?</strong></h2>
+<p> </p>
+<h3>Which ServiceNow products or capabilities would be used?</h3>
+<p></p><ul><li>Service Catalog Form</li><li>Table of events/orgs</li><li>Service Portal</li><li>NASK or an AI Agent to take all the form questions from a user and assess which event/org is best for the user</li></ul>
+<p> </p>
+<hr style="border-top: 3px solid #bbb;" />
+<h3>Are there any technical dependencies for the proposed solution?</h3>
+<p></p><ul><li>an instance with Generative AI capabilities</li><li>OR a connection to a third-party AI</li></ul>
+<p> </p>
+<hr style="border-top: 3px solid #bbb;" />
+<h3>What challenges would you foresee in implementing this idea?</h3>
+<p></p><ul><li>Maintenance of a database of events/orgs unless we can just pull from servicenow.org!</li></ul>]]></solution_proposal>
+        <state>submitted</state>
+        <sys_class_name>x_snc_hack4good_0_hack4good_proposal</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-30 16:47:04</sys_created_on>
+        <sys_id>a056e83553107610db6151a0a0490ec2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Good4Me</sys_name>
+        <sys_package display_value="Hack4Good Idea Submission" source="x_snc_hack4good_0">95b5d2b7938832108543b2597bba109c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hack4Good Idea Submission">95b5d2b7938832108543b2597bba109c</sys_scope>
+        <sys_update_name>x_snc_hack4good_0_hack4good_proposal_a056e83553107610db6151a0a0490ec2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-30 16:47:07</sys_updated_on>
+    </x_snc_hack4good_0_hack4good_proposal>
+</record_update>
