@@ -1,6 +1,6 @@
 # How to Contribute
 
-We welcome contributions to the **ServiceNow Developer Program's ActionPack Repository**! Follow these steps to get involved:
+We welcome contributions to the **ServiceNow Developer Program's Hack4Good Ideation Portal Repository**! Follow these steps to get involved:
 
 ## Contributions for Hacktoberfest 2025
 In Hacktoberfest 2025, we are looking for Proposal submissions only. When committed to source control, these are seen as `x_snc_hack4good_0_hack4good_proposal_{sys_id}.xml` files, where sys_id is the unique ID of the Hack4Good proposal record.
@@ -34,7 +34,7 @@ In Hacktoberfest 2025, we are looking for Proposal submissions only. When commit
    - [AES Commit Changes Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/app-engine-studio/task/source-control-commit-changes.html)
    - [Legacy Studio Commit Changes Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/applications/task/t_CommitChanges.html)
 
-9. **Submit a Pull Request**: In GitHub, submit a new pull request against the `main` branch of ActionPack, from your fork and branch. Steps are listed below:
+9. **Submit a Pull Request**: In GitHub, submit a new pull request against the `main` branch of Hack4Good, from your fork and branch. Steps are listed below:
    - Go to the original repository and click on the "Pull Requests" tab.
    - Click "New Pull Request" and select your branch.
    - Ensure your pull request has a descriptive title and comment that outlines what changes you made.
@@ -51,7 +51,6 @@ If you plan to submit another pull request while your original is still pending,
 - **Descriptive Pull Request Titles**: Your pull request must have explicit and descriptive titles that accurately represent the changes made.
 - **Scope Adherence**: Changes that fall outside the described scope will result in the entire pull request being rejected.
 - **Quality Over Quantity**: Low-effort or spam pull requests will be marked accordingly.
-- **Expanded Flow Actions**: Flow actions introduced that replicate existing Scopes or Global actions are acceptable only if they are expanded in a meaningful way (e.g., with additional functionality or variations). Remember: *"QUANTITY IS FUN, QUALITY IS KEY."*
-- **Relevance**: Flow actions should be relevant to ServiceNow Developers.
+
 
 Thank you for contributing! Your efforts help create a richer resource for the ServiceNow development community.
