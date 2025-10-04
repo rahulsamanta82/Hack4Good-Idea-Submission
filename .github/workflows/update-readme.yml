@@ -1,17 +1,17 @@
-name: Update README with idea list
+name: Update README with ideas
 
 on:
   pull_request:
     types: [closed]
     branches: [main]
   push:
-    branches: [main]   # optional but handy
+    branches: [main]
   workflow_dispatch:
     inputs:
       dry_run:
         description: "Run without committing changes"
         type: boolean
-        default: false
+        default: true
 
 permissions:
   contents: write
@@ -19,29 +19,44 @@ permissions:
 
 jobs:
   update:
-    # For PR trigger: only when merged; for manual/push: only when on main
     if: >
       (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
-      || (github.event_name != 'pull_request' && startsWith(github.ref, 'refs/heads/main'))
+      || (github.event_name == 'push')
+      || (github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main
 
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
 
-      - name: Install deps
-        run: npm ci
+      - run: npm ci
 
       - name: Build README section
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run update-readme
+
+      - name: Show README diff (preview)
+        run: |
+          if git diff --quiet -- README.md .idea_attribution.json; then
+            echo "No changes detected."
+          else
+            echo "::group::README diff"
+            git --no-pager diff -- README.md
+            echo "::endgroup::"
+          fi
+
+      - name: Upload README preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: readme-preview
+          path: README.md
 
       - name: Commit & push if changed
         if: ${{ !inputs.dry_run }}
