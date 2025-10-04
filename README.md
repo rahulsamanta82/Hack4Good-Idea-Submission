@@ -46,6 +46,8 @@ To contribute, just follow these steps:
     - [Legacy Studio Commit Changes Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/applications/task/t_CommitChanges.html)
 10. Submit a pull request to the ServiceNowDevProgram/ActionPack `main` branch
 
+That's it! More detailed contribution instructions can be found [here](CONTRIBUTING.md).
+
 ## Submitted ideas
 
 See what other community members submitted.
@@ -56,5 +58,4 @@ _Updated automatically on merge to `main`._
 
 <!-- ideas:end -->
 
-That's it! More detailed contribution instructions can be found [here](CONTRIBUTING.md).
 
