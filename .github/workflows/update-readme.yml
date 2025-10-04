@@ -1,3 +1,5 @@
+name: Update README with idea list
+
 on:
   pull_request:
     types: [closed]
