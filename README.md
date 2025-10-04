@@ -44,7 +44,7 @@ To contribute, just follow these steps:
     - [SNS Commit Changes Instructions](https://www.servicenow.com/docs/bundle/zurich-application-development/page/build/servicenow-studio/task/sns-sc-commit-changes-to-repository.html)
     - [AES Commit Changes Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/app-engine-studio/task/source-control-commit-changes.html)
     - [Legacy Studio Commit Changes Instructions](https://www.servicenow.com/docs/bundle/yokohama-application-development/page/build/applications/task/t_CommitChanges.html)
-10. Submit a pull request to the ServiceNowDevProgram/ActionPack `main` branch
+10. Submit a pull request to the ServiceNowDevProgram/Hack4Good-Idea-Submission `main` branch
 
 That's it! More detailed contribution instructions can be found [here](CONTRIBUTING.md).
 
