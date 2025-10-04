@@ -144,30 +144,33 @@ def resolve_attribution(xml_path: str, cache: dict, owner: str, repo: str):
     return cache[xml_path]
 
 def render_submitter(cell):
-    login = cell.get("login") or "Unknown"
+    login = cell.get("login") or "unknown"
     url = cell.get("html_url") or ""
     avatar = cell.get("avatar_url") or ""
-    # GitHub renders HTML in README; tiny avatar + @username linked to profile when available
+    # Width/height attributes are respected; most inline CSS is stripped by GitHub.
     if url:
-        img = f'<a href="{url}"><img src="{avatar}" width="20" height="20" style="border-radius:50%; vertical-align:middle;" /></a>' if avatar else ""
+        img = f'<a href="{url}"><img src="{avatar}" width="24" height="24" alt="@{login}" /></a>' if avatar else ""
         name = f'<a href="{url}">@{login}</a>'
-        return f'{img} {name}'.strip()
+        # Show avatar on top, handle below for clarity
+        return f'{img}<br>{name}' if img else name
     return f"@{login}"
 
 def build_table(items, owner: str, repo: str):
     if not items:
         return "\n_No ideas yet. Be the first to submit one!_\n"
 
-    header = "| Date (UTC) | Focus area | Project | Submitted by |\n|---|---|---|---|\n"
+    # New column order: Project | Focus area | Avatar | Created
+    header = "| Project | Focus area | Submitted by | Created (UTC) |\n|---|---|---|---|\n"
     rows = []
     cache = load_cache()
     try:
         for it in items:
-            date_disp = it["created_dt"].strftime("%Y-%m-%d") if it["created_dt"] else "—"
-            link = f"[{it['project_name']}]({it['path']})"
+            project = f"[{it['project_name']}]({it['path']})"
+            focus = it['focus_area']
             submitter = resolve_attribution(it["path"], cache, owner, repo)
             submitter_cell = render_submitter(submitter)
-            rows.append(f"| {date_disp} | {it['focus_area']} | {link} | {submitter_cell} |")
+            created = it["created_dt"].strftime("%Y-%m-%d") if it["created_dt"] else "—"
+            rows.append(f"| {project} | {focus} | {submitter_cell} | {created} |")
     finally:
         save_cache(cache)
 
