@@ -11,7 +11,6 @@ const MARKER_END = "<!-- ideas:end -->";
 const README_PATH = "README.md";
 const ATTR_CACHE_PATH = ".idea_attribution.json";
 
-// Adjust this as you like (you said you'll add emojis yourself)
 const FOCUS_MAP = {
     cure: "🧪 Cause and Cure",
     disaster: "🆘 Disaster and Community Support",
@@ -20,7 +19,7 @@ const FOCUS_MAP = {
     other: "🧩 Other",
 }
 
-// Matches any folder depth to the update path in your scope
+// Matches any folder depth to the update path in scope
 const GLOB_PATTERN = "**/update/x_snc_hack4good_0_hack4good_proposal_*.xml";
 
 const repoFull = process.env.GITHUB_REPOSITORY || "";
