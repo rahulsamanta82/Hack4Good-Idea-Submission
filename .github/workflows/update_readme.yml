@@ -1,41 +1,45 @@
 name: Update README with ideas
 
 on:
-  push:
-    branches: [ "main" ]
+  pull_request:
+    types: [closed]
+    branches: [ "main" ]  # only when PRs into main are closed
 
 permissions:
   contents: write
+  pull-requests: read
 
 concurrency:
   group: update-readme
   cancel-in-progress: false
 
 jobs:
-  build:
-    if: ${{ github.actor != 'github-actions[bot]' }}  # avoid loops on our own commits
+  update:
+    if: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
-      - name: Regenerate README section
+      - name: Build README section
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/update_readme.py
 
       - name: Commit & push if changed
         run: |
-          if ! git diff --quiet -- README.md; then
+          if ! git diff --quiet -- README.md .idea_attribution.json; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add README.md
+            git add README.md .idea_attribution.json
             git commit -m "chore: update ideas list [skip ci]"
             git push
           else
