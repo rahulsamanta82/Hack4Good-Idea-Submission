@@ -15,13 +15,13 @@ MARKER_END = "<!-- ideas:end -->"
 README_PATH = Path("README.md")
 ATTR_CACHE_PATH = Path(".idea_attribution.json")
 
-# Your updated mapping
+# Focus area mapping
 FOCUS_MAP = {
-    "cure": "Cause and Cure",
-    "disaster": "Disaster and Community Support",
-    "education": "Education and Youth Services",
-    "sustainability": "Sustainability and Decarbonization",
-    "other": "Other",
+    "cure": "🧪 Cause and Cure",
+    "disaster": "🆘 Disaster and Community Support",
+    "education": "🎓 Education and Youth Services",
+    "sustainability": "🌱 Sustainability and Decarbonization",
+    "other": "🧩 Other",
 }
 
 GLOB_PATTERN = "**/update/x_snc_hack4good_0_hack4good_proposal_*.xml"
@@ -159,7 +159,7 @@ def build_table(items, owner: str, repo: str):
     if not items:
         return "\n_No ideas yet. Be the first to submit one!_\n"
 
-    # New column order: Project | Focus area | Avatar | Created
+    # Column order: Project | Focus area | Avatar | Created
     header = "| Project | Focus area | Submitted by | Created (UTC) |\n|---|---|---|---|\n"
     rows = []
     cache = load_cache()
