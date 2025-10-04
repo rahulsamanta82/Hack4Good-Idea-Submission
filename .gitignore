@@ -4,3 +4,27 @@
 # Claude Code settings
 .claude/
 settings.local.json
+
+# -------------------------------------------------------------------
+# Ignore automation-generated or maintainer-only files
+# -------------------------------------------------------------------
+
+# README is automatically updated by CI — contributors should not submit it
+/README.md
+
+# Attribution cache used by automation
+/.idea_attribution.json
+
+# Node and workflow artifacts
+node_modules/
+package-lock.json
+package.json
+
+# GitHub workflow logs or artifacts (just in case)
+*.log
+*.tmp
+*.bak
+
+# Ignore all other files in the repo root except ServiceNow record XMLs
+# (allow nested XMLs under update/ folders)
+!**/update/x_snc_hack4good_0_hack4good_proposal_*.xml
