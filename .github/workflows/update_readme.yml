@@ -1,0 +1,43 @@
+name: Update README with ideas
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-readme
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: ${{ github.actor != 'github-actions[bot]' }}  # avoid loops on our own commits
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Regenerate README section
+        run: python scripts/update_readme.py
+
+      - name: Commit & push if changed
+        run: |
+          if ! git diff --quiet -- README.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore: update ideas list [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi
