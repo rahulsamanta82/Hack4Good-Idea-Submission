@@ -1,33 +1,34 @@
-name: Update README with ideas
-
 on:
   pull_request:
     types: [closed]
-    branches: [ "main" ]
+    branches: [main]
   push:
-    branches: [ "main" ]
+    branches: [main]   # optional but handy
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run without committing changes"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
   pull-requests: read
 
-concurrency:
-  group: update-readme
-  cancel-in-progress: false
-
 jobs:
   update:
-    if: ${{ github.event.pull_request.merged == true }}
+    # For PR trigger: only when merged; for manual/push: only when on main
+    if: >
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+      || (github.event_name != 'pull_request' && startsWith(github.ref, 'refs/heads/main'))
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: main
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
@@ -41,6 +42,7 @@ jobs:
         run: npm run update-readme
 
       - name: Commit & push if changed
+        if: ${{ !inputs.dry_run }}
         run: |
           if ! git diff --quiet -- README.md .idea_attribution.json; then
             git config user.name "github-actions[bot]"
