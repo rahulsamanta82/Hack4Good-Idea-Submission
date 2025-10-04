@@ -34,7 +34,8 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - run: npm ci
+      - name: Install deps
+        run: npm install --no-audit --no-fund
 
       - name: Build README section
         env:
