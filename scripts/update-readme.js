@@ -13,12 +13,12 @@ const ATTR_CACHE_PATH = ".idea_attribution.json";
 
 // Adjust this as you like (you said you'll add emojis yourself)
 const FOCUS_MAP = {
-  cure: "Cause and Cure",
-  disaster: "Disaster and Community Support",
-  education: "Education and Youth Services",
-  sustainability: "Sustainability and Decarbonization",
-  other: "Other"
-};
+    cure: "🧪 Cause and Cure",
+    disaster: "🆘 Disaster and Community Support",
+    education: "🎓 Education and Youth Services",
+    sustainability: "🌱 Sustainability and Decarbonization",
+    other: "🧩 Other",
+}
 
 // Matches any folder depth to the update path in your scope
 const GLOB_PATTERN = "**/update/x_snc_hack4good_0_hack4good_proposal_*.xml";
