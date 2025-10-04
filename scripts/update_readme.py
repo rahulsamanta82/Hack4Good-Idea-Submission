@@ -147,12 +147,9 @@ def render_submitter(cell):
     login = cell.get("login") or "unknown"
     url = cell.get("html_url") or ""
     avatar = cell.get("avatar_url") or ""
-    # Width/height attributes are respected; most inline CSS is stripped by GitHub.
     if url:
-        img = f'<a href="{url}"><img src="{avatar}" width="24" height="24" alt="@{login}" /></a>' if avatar else ""
-        name = f'<a href="{url}">@{login}</a>'
-        # Show avatar on top, handle below for clarity
-        return f'{img}<br>{name}' if img else name
+        img = f'<img src="{avatar}" width="20" height="20" style="border-radius:50%; vertical-align:middle;" alt="@{login}"/>'
+        return f'<a href="{url}">{img} @{login}</a>'
     return f"@{login}"
 
 def build_table(items, owner: str, repo: str):
