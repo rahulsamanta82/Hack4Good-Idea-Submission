@@ -19,11 +19,16 @@ permissions:
 
 jobs:
   update:
+    # Only run in the canonical repo; allow PR-closed, push, and manual runs
     if: >
-      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
-      || (github.event_name == 'push')
-      || (github.event_name == 'workflow_dispatch')
+      github.repository == 'ServiceNowDevProgram/Hack4Good-Idea-Submission' &&
+      (
+        (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
+        (github.event_name == 'push') ||
+        (github.event_name == 'workflow_dispatch')
+      )
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -58,15 +63,17 @@ jobs:
         with:
           name: readme-preview
           path: README.md
-          
+
+      # ✅ Only push on 'push' (write token) or manual run with dry_run=false.
       - name: Commit & push if changed
+        if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry_run != 'true') }}
         shell: bash
         run: |
           if ! git diff --quiet -- README.md .idea_attribution.json; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add README.md .idea_attribution.json
-            git commit -m "chore: update ideas list [skip ci]"
+            git commit -m "chore: update ideas list [skip ci]" || echo "Nothing to commit"
             git pull --rebase origin main
             git push || (sleep 2 && git push)
           else
